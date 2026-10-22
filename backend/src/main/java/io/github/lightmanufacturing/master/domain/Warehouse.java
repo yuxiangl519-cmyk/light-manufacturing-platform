@@ -1,0 +1,48 @@
+package io.github.lightmanufacturing.master.domain;
+
+import io.github.lightmanufacturing.shared.persistence.AuditedEntity;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "warehouse")
+public class Warehouse extends AuditedEntity {
+  private String code;
+
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String v) {
+    code = v;
+  }
+
+  private String name;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String v) {
+    name = v;
+  }
+
+  private String address;
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String v) {
+    address = v;
+  }
+
+  private boolean enabled;
+
+  public boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(boolean v) {
+    enabled = v;
+  }
+}

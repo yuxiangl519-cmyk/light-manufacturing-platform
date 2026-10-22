@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${MFG_DB_URL:jdbc:mysql://127.0.0.1:13306/mini_mfg_dev?serverTimezone=UTC&characterEncoding=UTF-8}
+    username: ${MFG_DB_USERNAME}
+    password: ${MFG_DB_PASSWORD}
+  data:
+    redis:
+      host: ${MFG_REDIS_HOST:127.0.0.1}
+      port: ${MFG_REDIS_PORT:16379}
+      password: ${MFG_REDIS_PASSWORD:}
+mfg:
+  redis-prefix: 'light-mfg:local:'
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+server:
+  address: 127.0.0.1

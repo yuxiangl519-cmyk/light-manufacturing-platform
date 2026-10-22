@@ -1,0 +1,21 @@
+{
+  "database": "mini_mfg_test",
+  "actualJavaSalesTools": true,
+  "deterministicPythonEngine": true,
+  "modelInvoked": false,
+  "result": {
+    "salesAmount": "618916.00",
+    "previousSalesAmount": "80876.00",
+    "orderCount": "74",
+    "previousOrderCount": "9",
+    "amountGrowth": "665.27%",
+    "orderGrowth": "722.22%",
+    "dailyMean": "20630.53",
+    "trendDirection": "上升",
+    "anomalies": [
+      "2026-10-17 销售额 80419.00 元，超过当期日均的两倍",
+      "2026-10-18 销售额 51457.00 元，超过当期日均的两倍",
+      "存在零销售日；仅为统计提示，需结合发货节奏判断，不能据此推断原因。"
+    ]
+  }
+}

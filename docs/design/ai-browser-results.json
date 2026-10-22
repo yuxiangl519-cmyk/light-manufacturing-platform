@@ -1,0 +1,10 @@
+{
+  "database": "mini_mfg_test",
+  "checks": [
+    "真实Vue→Java→FastAPI→DeepSeek分析与Markdown表格",
+    "刷新后打开历史保留真实报告",
+    "利润澄清后继续同一会话",
+    "取消真实模型分析并持久化取消状态"
+  ],
+  "errors": []
+}

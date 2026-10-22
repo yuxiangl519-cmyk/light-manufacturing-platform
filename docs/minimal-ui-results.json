@@ -1,0 +1,57 @@
+{
+  "kind": "isolated UI fixtures; no real backend/database/model",
+  "results": [
+    {
+      "name": "桌面空态、示例填入、固定输入区",
+      "status": "passed",
+      "elapsedMs": 576
+    },
+    {
+      "name": "历史搜索、报告不重复、范围和执行详情",
+      "status": "passed",
+      "elapsedMs": 300
+    },
+    {
+      "name": "澄清刷新恢复、快捷键发送、统计与阶段",
+      "status": "passed",
+      "elapsedMs": 627
+    },
+    {
+      "name": "模型错误提示与重试（仅模拟响应）",
+      "status": "passed",
+      "elapsedMs": 361
+    },
+    {
+      "name": "取消与防重复发送（仅模拟响应）",
+      "status": "passed",
+      "elapsedMs": 219
+    },
+    {
+      "name": "长报告单滚动、回到底部、输入不移出视口",
+      "status": "passed",
+      "elapsedMs": 317
+    },
+    {
+      "name": "手机布局、历史展开、表格局部滚动",
+      "status": "passed",
+      "elapsedMs": 371
+    },
+    {
+      "name": "业务列表、筛选、资料表单与公共弹窗",
+      "status": "passed",
+      "elapsedMs": 832
+    },
+    {
+      "name": "工作台与其他模块布局冒烟",
+      "status": "passed",
+      "elapsedMs": 3802
+    },
+    {
+      "name": "窄屏业务列表与只读权限菜单",
+      "status": "passed",
+      "elapsedMs": 628
+    }
+  ],
+  "runtimeErrors": [],
+  "unmappedRequests": []
+}

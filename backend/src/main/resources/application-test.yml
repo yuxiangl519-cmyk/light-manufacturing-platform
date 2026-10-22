@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: ${MFG_TEST_DB_URL:jdbc:mysql://127.0.0.1:13306/mini_mfg_test?serverTimezone=UTC&characterEncoding=UTF-8}
+    username: ${MFG_TEST_DB_USERNAME}
+    password: ${MFG_TEST_DB_PASSWORD}
+  data:
+    redis:
+      host: ${MFG_TEST_REDIS_HOST:127.0.0.1}
+      port: ${MFG_TEST_REDIS_PORT:16380}
+      password: ${MFG_TEST_REDIS_PASSWORD:}
+mfg:
+  redis-prefix: 'light-mfg:test:'

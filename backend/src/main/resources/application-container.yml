@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: ${MFG_DB_URL}
+    username: ${MFG_DB_USERNAME}
+    password: ${MFG_DB_PASSWORD}
+  data:
+    redis:
+      host: ${MFG_REDIS_HOST}
+      port: ${MFG_REDIS_PORT:6379}
+      password: ${MFG_REDIS_PASSWORD:}
+mfg:
+  redis-prefix: 'light-mfg:container:'

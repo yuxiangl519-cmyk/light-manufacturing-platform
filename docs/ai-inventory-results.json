@@ -1,0 +1,1240 @@
+{
+  "suite": "ai-baseline-v3",
+  "fixedClock": "2026-10-02",
+  "calendarClock": null,
+  "model": null,
+  "results": [
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_decimal_growth_and_zero_baseline",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_analysis_reports_only_source_numbers_and_anomalies",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_mismatched_summary_trend_is_rejected",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fractional_order_count_is_rejected",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_real_graph_executes_nodes_and_decimal_report_with_test_doubles",
+      "status": "passed",
+      "seconds": 0.027,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_evidence_conditionally_replans",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_reflection_cannot_loop_forever",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_raw_sql_unknown_tools_and_changed_dates_are_rejected",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_http_auth_and_reject_caller_identity",
+      "status": "passed",
+      "seconds": 0.03,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_template_plan_passes_independent_textsql_node_and_result_keeps_period",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_profit_clarification_resumes_to_sales_using_original_dates",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_request_tool_budget_applies_across_replanning",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_limit_hardcaps_cannot_be_overridden",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_successful_context_supports_followup_and_empty_data_is_explicit",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_dimension_clarification_can_resume_with_global_scope",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_dimension_oracle_counts_distinct_orders_and_keeps_units",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_unit_quantity_checker_rejects_numeric_substring_match",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_rankings_are_bounded_tools_not_model_identity_plans[2026-10-01\\u81f32026-10-02\\u5ba2\\u6237\\u9500\\u552e\\u6392\\u884c-get_customer_sales_ranking]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_rankings_are_bounded_tools_not_model_identity_plans[2026-10-01\\u81f32026-10-02\\u5546\\u54c1\\u9500\\u552e\\u6392\\u540d-get_product_sales_ranking]",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_named_product_uses_backend_candidate_id_and_reports_unit_quantity",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_duplicate_names_require_user_id_choice_then_requery_candidates",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_forged_selection_or_candidate_context_cannot_choose_an_unreturned_id",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_unspecified_customer_asks_for_name_with_range_preserved",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_model_cannot_call_unbound_dimension_tools[get_entity_sales-args0]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_model_cannot_call_unbound_dimension_tools[get_customer_sales_ranking-args1]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_scoped_tool_arguments_reject_changed_id_dimension_dates_and_extra_fields",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_date_clarification_never_loses_requested_dimension[\\u5ba2\\u6237\\u9500\\u552e\\u6392\\u884c-get_customer_sales_ranking]",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_date_clarification_never_loses_requested_dimension[\\u6807\\u51c6\\u529e\\u516c\\u53f0\\u5f0f\\u673a\\u5356\\u4e86\\u591a\\u5c11-get_entity_sales]",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_or_tampered_backend_evidence_never_produces_report[truncated]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_or_tampered_backend_evidence_never_produces_report[missing]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_or_tampered_backend_evidence_never_produces_report[wrong_id]",
+      "status": "passed",
+      "seconds": 0.015,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_or_tampered_backend_evidence_never_produces_report[wrong_dates]",
+      "status": "passed",
+      "seconds": 0.014,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_or_tampered_backend_evidence_never_produces_report[wrong_units]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_words_in_quoted_name_cannot_become_rank_or_direct_id[ID123Company]",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_words_in_quoted_name_cannot_become_rank_or_direct_id[\\u9500\\u552e\\u989d\\u6700\\u9ad8\\u79d1\\u6280\\u516c\\u53f8]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_quoted_name_cannot_switch_to_global_or_another_dimension[\\u5168\\u5382\\u79d1\\u6280\\u516c\\u53f8]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_quoted_name_cannot_switch_to_global_or_another_dimension[\\u5546\\u54c1\\u4ea7\\u54c1\\u79d1\\u6280\\u5ba2\\u6237]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_quantity_order_rank_is_not_silently_replaced_with_amount_ranking[\\u6700\\u8fd12\\u5929\\u5546\\u54c1\\u9500\\u91cf\\u6392\\u884c]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_quantity_order_rank_is_not_silently_replaced_with_amount_ranking[\\u6700\\u8fd12\\u5929\\u5ba2\\u6237\\u8ba2\\u5355\\u6570\\u6392\\u540d]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[summary]",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[trend]",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[comparison]",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[empty]",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[dates]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[profit]",
+      "status": "passed",
+      "seconds": 0.014,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[customer]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[unauthorized]",
+      "status": "passed",
+      "seconds": 0.015,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[model_failure]",
+      "status": "passed",
+      "seconds": 0.013,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[tool_failure]",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[cancel]",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[resume]",
+      "status": "passed",
+      "seconds": 0.024,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_report_checker_rejects_wrong_numeric_date_or_source",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_relative_dates_use_injected_shanghai_day",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_report_records_failure_skip_duration_and_never_reads_raw_body",
+      "status": "passed",
+      "seconds": 0.024,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_live_is_never_inferred_from_old_result_file",
+      "status": "passed",
+      "seconds": 0.009,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_independent_oracle_groups_utc_rows_as_shanghai_days",
+      "status": "passed",
+      "seconds": 0.004,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_collection_error_cannot_look_like_empty_success",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_independent_oracle_uses_shanghai_historical_dst",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_profit_asks_clarification_without_model_or_tools",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_missing_model_is_explicit",
+      "status": "passed",
+      "seconds": 0.022,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_ambiguous_dates_ask_instead_of_inventing",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_customer_product_filters_are_not_silently_ignored",
+      "status": "passed",
+      "seconds": 0.053,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_operations_route_without_sales_dates_or_model[\\u539f\\u6599\\u4ed3\\u54ea\\u4e9b\\u7269\\u6599\\u5e93\\u5b58\\u4e0d\\u8db3\\uff1f-get_low_stock_alerts]",
+      "status": "passed",
+      "seconds": 0.024,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_operations_route_without_sales_dates_or_model[\\u4ed3\\u5e93ID 11 \\u7269\\u6599ID 21 \\u5f53\\u524d\\u5e93\\u5b58-get_current_stock]",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_operations_route_without_sales_dates_or_model[\\u5de5\\u5355ID 11\\u8fd8\\u7f3a\\u54ea\\u4e9b\\u96f6\\u90e8\\u4ef6\\uff1f-get_production_shortage]",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_operations_route_without_sales_dates_or_model[\\u76ee\\u524d\\u6709\\u54ea\\u4e9b\\u6210\\u54c1\\u7b49\\u5f85\\u5165\\u5e93\\uff1f-get_pending_production_receipts]",
+      "status": "passed",
+      "seconds": 0.021,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_ambiguous_warehouse_requires_bound_candidate_then_revalidates",
+      "status": "passed",
+      "seconds": 0.039,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_missing_work_order_clarifies_then_continues",
+      "status": "passed",
+      "seconds": 0.036,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_historical_stock_and_writes_do_not_call_tools[\\u6628\\u5929\\u539f\\u6599\\u4ed3\\u5e93\\u5b58\\u662f\\u591a\\u5c11\\uff1f]",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_historical_stock_and_writes_do_not_call_tools[2026-10-01\\u5e93\\u5b58]",
+      "status": "passed",
+      "seconds": 0.031,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_historical_stock_and_writes_do_not_call_tools[\\u4e0a\\u4e2a\\u6708 \\u4ed3\\u5e93ID 11 \\u7269\\u6599ID 21 \\u5e93\\u5b58]",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_historical_stock_and_writes_do_not_call_tools[2024\\u5e74 \\u4ed3\\u5e93ID 11 \\u7269\\u6599ID 21 \\u5e93\\u5b58]",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_historical_stock_and_writes_do_not_call_tools[\\u8bf7\\u6267\\u884c\\u6210\\u54c1\\u5165\\u5e93]",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_historical_stock_and_writes_do_not_call_tools[\\u5e2e\\u6211\\u521b\\u5efa\\u91c7\\u8d2d\\u5355\\u8865\\u6599]",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_model_cannot_choose_operational_scope_and_dates_rejected",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_missing_warehouse_name_reply_resumes_current_query",
+      "status": "passed",
+      "seconds": 0.034,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_unparsed_material_does_not_silently_return_all_stock",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_pending_named_warehouse_uses_document_permission_lookup",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_quantity_never_reports_success[NaN]",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_quantity_never_reports_success[-1]",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_quantity_never_reports_success[1.5]",
+      "status": "passed",
+      "seconds": 0.021,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_quantity_never_reports_success[Infinity]",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_tool_permission_failure_stays_error_not_empty_success",
+      "status": "passed",
+      "seconds": 0.022,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_already_issued_order_shows_balance_without_repeated_shortage",
+      "status": "passed",
+      "seconds": 0.019,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-\\u6700\\u8fd17\\u5929\\u9500\\u552e-2026-10-14-2026-10-21]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u4eca\\u5929\\u9500\\u552e-2026-01-01-2026-01-02]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u6628\\u5929\\u9500\\u552e-2025-12-31-2026-01-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u672c\\u5468\\u9500\\u552e-2025-12-29-2026-01-02]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u4e0a\\u5468\\u9500\\u552e-2025-12-22-2025-12-29]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-25-\\u672c\\u5468\\u9500\\u552e-2026-10-19-2026-10-26]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-26-\\u672c\\u5468\\u9500\\u552e-2026-10-26-2026-10-27]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2024-03-31-\\u4e0a\\u6708\\u9500\\u552e-2024-02-01-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2025-03-31-\\u4e0a\\u6708\\u9500\\u552e-2025-02-01-2025-03-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-31-\\u4e0a\\u6708\\u9500\\u552e-2025-12-01-2026-01-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2024-02-29-\\u672c\\u6708\\u9500\\u552e-2024-02-01-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-\\u672c\\u6708\\u9500\\u552e-2026-10-01-2026-10-21]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2024\\u5e742\\u6708\\u9500\\u552e-2024-02-01-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2025-02\\u9500\\u552e-2025-02-01-2025-03-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2026\\u5e7410\\u6708\\u9500\\u552e-2026-10-01-2026-10-21]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2025\\u5e7412\\u670831\\u65e5\\u81f32026\\u5e741\\u67082\\u65e5\\u9500\\u552e-2025-12-31-2026-01-03]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2024-2-28\\u81f32024-2-29\\u9500\\u552e-2024-02-28-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2025-02-29\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-13\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026\\u5e740\\u6708\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-02-30\\u81f32026-03-01\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-10-03\\u81f32026-10-01\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u6700\\u8fd10\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u6700\\u8fd1367\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u6700\\u8fd11000\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u4eca\\u5929\\u548c\\u6628\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-10-01\\u81f3\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2\\u6708\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-10-01\\u81f32026-10-02\\u53ca2026-10-04\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_current_message_overrides_original_range",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_zero_baseline_is_never_a_percentage_even_zero_to_zero",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_dates_then_metric_clarification_preserves_explicit_range",
+      "status": "passed",
+      "seconds": 0.027,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_income_requires_explicit_switch_to_order_amount",
+      "status": "passed",
+      "seconds": 0.023,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_new_date_asks_again_instead_of_silently_using_history",
+      "status": "passed",
+      "seconds": 0.023,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_datetime_clock_is_converted_to_shanghai_before_today_resolution",
+      "status": "passed",
+      "seconds": 0.023,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_declining_offered_metric_never_starts_analysis[\\u672c\\u6708\\u7ecf\\u8425\\u600e\\u4e48\\u6837-\\u4e0d\\u53ef\\u4ee5]",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_declining_offered_metric_never_starts_analysis[\\u672c\\u6708\\u5229\\u6da6-\\u4e0d\\u8981\\u5206\\u6790\\u9500\\u552e\\u989d]",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_declining_offered_metric_never_starts_analysis[\\u672c\\u6708\\u5ba2\\u6237\\u5229\\u6da6\\u6392\\u540d-\\u4e0d\\u53ef\\u4ee5\\uff0c\\u4ecd\\u7136\\u6309\\u5ba2\\u6237]",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_successful_sales_context_can_supply_both_missing_scope_and_metric",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_shanghai_historical_dst_clock_uses_iana_zone_not_fixed_offset",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_planning_retry_keeps_one_clock_snapshot",
+      "status": "passed",
+      "seconds": 0.022,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_obvious_sensitive_question_fields_are_masked",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_iso_period_and_business_request_are_preserved",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "historicalShanghaiDstUsesLocalMidnightRatherThanFixedUtcEight",
+      "status": "passed",
+      "seconds": 0.026,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "shippedOnlyUtcBoundariesPreviousPeriodAndZeroDays",
+      "status": "passed",
+      "seconds": 0.03,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "empty366DayRangeReturnsAllNaturalDaysAndStringZeroes",
+      "status": "passed",
+      "seconds": 0.072,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "independentDetailOracleChecksSummaryEveryDayAndMetadata",
+      "status": "passed",
+      "seconds": 0.028,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "ownerIsolationCsrfAndDefaultDeny",
+      "status": "passed",
+      "seconds": 3.642,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "operationsToolsCheckSeparatePermissionsAndRetainIdentityBoundary",
+      "status": "passed",
+      "seconds": 8.994,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "sseFirstFrameArrivesBeforeUpstreamCompletesAndCancelPersists",
+      "status": "passed",
+      "seconds": 0.49,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "dimensionToolsKeepCapabilitiesPermissionAndArgumentBoundaries",
+      "status": "passed",
+      "seconds": 1.401,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "toolCapabilitiesSafeTemplatesAndCallLimit",
+      "status": "passed",
+      "seconds": 0.914,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "scopedSummaryTrendAndIndependentDetailOracle",
+      "status": "passed",
+      "seconds": 0.07,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "candidateCapAndHistoricalLabelsStayExplicit",
+      "status": "passed",
+      "seconds": 0.07,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "limitsAndIdsRejectRatherThanWidenScope",
+      "status": "passed",
+      "seconds": 0.05,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "ambiguityDisabledAndHistoricalSnapshotLookupExposeNoContacts",
+      "status": "passed",
+      "seconds": 0.068,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "rankingsUseHeaderForCustomerAndLineAmountForProduct",
+      "status": "passed",
+      "seconds": 0.054,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "candidateAmbiguityAndBoundSearchExposeMinimalFields",
+      "status": "passed",
+      "seconds": 0.43,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "pendingReceiptDoesNotAddInventoryAndIssuedOrderDoesNotReplenishTwice",
+      "status": "passed",
+      "seconds": 0.562,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "unconfirmedOrderInvalidIdsHistoryAndParameterMixRejected",
+      "status": "passed",
+      "seconds": 0.36,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "shortageUsesConfirmedSnapshotNotCurrentBomAndDoesNotReserve",
+      "status": "passed",
+      "seconds": 0.528,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "zeroBalanceThresholdEqualityAndIndependentDatabaseRead",
+      "status": "passed",
+      "seconds": 0.335,
+      "reason": ""
+    },
+    {
+      "layer": "real-model",
+      "case": "explicit-live-suite",
+      "status": "not-run",
+      "seconds": 0,
+      "reason": "Requires -Live; deterministic doubles are not live verification"
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.ai.application.AiOperationsTest.historicalOrOversizedQueriesFailBeforeAnyBusinessRead",
+      "status": "passed",
+      "seconds": 1.573,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.ai.application.AiOperationsTest.queryTimestampIsInjectableAndNotTheExecutionDay",
+      "status": "passed",
+      "seconds": 0.062,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.BusinessTimeTest.requiresExplicitLocalImportAndRestoresAfterFailure",
+      "status": "passed",
+      "seconds": 0.017,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.BusinessTimeTest.doesNotLeakToOtherThreadsAndRejectsNestedScopes",
+      "status": "passed",
+      "seconds": 0.007,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.demo.DemoPlanTest.chronologyNeverOverdrawsAndLeavesUsefulTodos",
+      "status": "passed",
+      "seconds": 0.03,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.demo.DemoPlanTest.exactPeriodsCountsAndQuantities",
+      "status": "passed",
+      "seconds": 0.038,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.ErpMoneyTest.acceptsExactRenminbiTaxInclusivePrices",
+      "status": "passed",
+      "seconds": 0.004,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.ErpMoneyTest.rejectsLineAndOrderOverflow",
+      "status": "passed",
+      "seconds": 0.002,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.ErpMoneyTest.rejectsFractionalCentsNegativeAndOverlargePrices",
+      "status": "passed",
+      "seconds": 0.003,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.PolicyTest.actionRequiresItsReadPermission",
+      "status": "passed",
+      "seconds": 0.015,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.PolicyTest.testGuardRejectsDevelopmentResources",
+      "status": "passed",
+      "seconds": 0.007,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.PolicyTest.fixedCatalogHasExactly34Permissions",
+      "status": "passed",
+      "seconds": 0.003,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.PolicyTest.passwordRejectsBcryptTruncationAndShortInput",
+      "status": "passed",
+      "seconds": 0.004,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.QuantitiesTest.rejectsFractionsAndExponentsAndOverflow",
+      "status": "passed",
+      "seconds": 0.006,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.QuantitiesTest.multiplicationCannotOverflowSqlPrecision",
+      "status": "passed",
+      "seconds": 0.002,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.SalesAnalyticsTest.rejectsInvalidRangesBeforeDatabaseAccess",
+      "status": "passed",
+      "seconds": 0.273,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.SalesAnalyticsTest.summaryBindsExclusiveUtcBoundariesAndEqualPreviousPeriod",
+      "status": "passed",
+      "seconds": 0.891,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.SalesAnalyticsTest.trendUsesOneBoundedFixedSqlAnd366CalendarDays",
+      "status": "passed",
+      "seconds": 0.503,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.SalesDimensionsTest.lookupEscapesWildcardsAndOmitsAllContactColumns",
+      "status": "passed",
+      "seconds": 0.02,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.SalesDimensionsTest.invalidBoundsNeverReadDatabase",
+      "status": "passed",
+      "seconds": 0.028,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.SalesDimensionsTest.rankingUsesBoundParametersAndPerStatementLimits",
+      "status": "passed",
+      "seconds": 0.012,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.StrictJsonTest.stringIdsAndNumericVersionRemainValid",
+      "status": "passed",
+      "seconds": 0.167,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.StrictJsonTest.unknownPropertiesAreRejected",
+      "status": "passed",
+      "seconds": 0.007,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.StrictJsonTest.numericIdsCannotBeSilentlyCoercedToStrings",
+      "status": "passed",
+      "seconds": 0.004,
+      "reason": ""
+    },
+    {
+      "layer": "java-deterministic-no-model",
+      "case": "io.github.lightmanufacturing.system.application.AuditServiceTest.failureAuditSurvivesRequestContextAlreadyBeingCleared",
+      "status": "passed",
+      "seconds": 0.355,
+      "reason": ""
+    }
+  ],
+  "stage": "AI improvement 4: read-only inventory and production",
+  "baselineBefore": {
+    "pythonPassed": 105,
+    "javaUnitPassed": 23,
+    "mysqlPassed": 13,
+    "realModel": "not-run"
+  },
+  "frontend": {
+    "typecheck": "passed",
+    "unitPassed": 11,
+    "unitFailed": 0,
+    "unitAssertionSeconds": 0.028,
+    "build": "passed",
+    "browser": "not-run"
+  },
+  "commands": [
+    "./scripts/Test-AiEvaluation.ps1",
+    "agent/.venv/Scripts/python.exe -m pytest agent/tests -q --junitxml=output/ai-evaluation/unit.xml",
+    "agent/.venv/Scripts/python.exe agent/evaluation/report.py --root .",
+    "frontend: npm run typecheck; npm run test:unit -- --run; npm run build"
+  ],
+  "notes": [
+    "Final Python run adds explicit year-history regression after full default evaluation; Java unchanged after its final run.",
+    "No model called by operations routes; no claim of live model or real Python-to-Java full process/browser verification.",
+    "First TDD run: 6 failed, 5 passed; new operations questions entered sales date clarification; fixed independent route, tests retained.",
+    "Existing stage3 calendar_yesterday MODEL_REQUEST_FAILED result remains historical, not rerun or declared repaired.",
+    "Warnings: existing starlette/anyio deprecation; existing frontend large bundle warning."
+  ]
+}

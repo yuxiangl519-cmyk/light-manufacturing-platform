@@ -1,0 +1,87 @@
+{
+  "database": "mini_mfg_dev",
+  "batch": "DEMO-PC-20261020",
+  "actualImportedAt": "2026-10-20T08:23:20.440817900Z",
+  "syntheticTransactions": true,
+  "createdOrders": 106,
+  "skippedOrders": 0,
+  "existingRowsUnchanged": true,
+  "balances": [
+    {
+      "code": "DM261020-CASE",
+      "quantity": 10,
+      "warehouse": "DM261020-RAW"
+    },
+    {
+      "code": "DM261020-CPU",
+      "quantity": 10,
+      "warehouse": "DM261020-RAW"
+    },
+    {
+      "code": "DM261020-MB",
+      "quantity": 10,
+      "warehouse": "DM261020-RAW"
+    },
+    {
+      "code": "DM261020-PC",
+      "quantity": 14,
+      "warehouse": "DM261020-FG"
+    },
+    {
+      "code": "DM261020-PSU",
+      "quantity": 10,
+      "warehouse": "DM261020-RAW"
+    },
+    {
+      "code": "DM261020-RAM",
+      "quantity": 20,
+      "warehouse": "DM261020-RAW"
+    },
+    {
+      "code": "DM261020-SSD",
+      "quantity": 10,
+      "warehouse": "DM261020-RAW"
+    }
+  ],
+  "periodSales": [
+    {
+      "period": "previous",
+      "shippedOrders": 9,
+      "salesAmount": 80876.0
+    },
+    {
+      "period": "current",
+      "shippedOrders": 50,
+      "salesAmount": 479658.0
+    }
+  ],
+  "todos": [
+    {
+      "status": "COMPLETED",
+      "orders": 25
+    },
+    {
+      "status": "IN_PRODUCTION",
+      "orders": 1
+    },
+    {
+      "status": "PENDING_INBOUND",
+      "orders": 1
+    },
+    {
+      "status": "READY_TO_ISSUE",
+      "orders": 1
+    }
+  ],
+  "stockDocuments": 125,
+  "ledgerRows": 324,
+  "checks": [
+    "106 orders",
+    "historical created dates",
+    "stock balance equals ledger sum",
+    "continuous ledger chain",
+    "ledger time equals document execution time",
+    "pending receipt has no ledger",
+    "no existing rows changed"
+  ]
+}

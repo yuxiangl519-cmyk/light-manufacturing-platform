@@ -1,0 +1,25 @@
+# Local credentials, binaries, data and logs (never commit)
+output/
+.local/
+.env
+.env.*
+!.env.example
+**/application-private.*
+**/application-local-private.*
+**/target/
+**/logs/
+*.log
+.idea/
+.vscode/
+*.iml
+node_modules/
+frontend/dist/
+output/playwright/
+output/ai/
+dist/
+agent/.venv/
+**/__pycache__/
+**/.pytest_cache/
+output/ai-evaluation/
+output/ai-acceptance/
+output/ai-decision-loop/

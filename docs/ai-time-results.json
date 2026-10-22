@@ -1,0 +1,816 @@
+{
+  "suite": "ai-baseline-v2",
+  "fixedClock": "2026-10-02",
+  "calendarClock": "2026-10-20",
+  "model": "deepseek-v4-flash",
+  "results": [
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_decimal_growth_and_zero_baseline",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_analysis_reports_only_source_numbers_and_anomalies",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_mismatched_summary_trend_is_rejected",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fractional_order_count_is_rejected",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_real_graph_executes_nodes_and_decimal_report_with_test_doubles",
+      "status": "passed",
+      "seconds": 0.016,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_incomplete_evidence_conditionally_replans",
+      "status": "passed",
+      "seconds": 0.012,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_reflection_cannot_loop_forever",
+      "status": "passed",
+      "seconds": 0.012,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_raw_sql_unknown_tools_and_changed_dates_are_rejected",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_http_auth_and_reject_caller_identity",
+      "status": "passed",
+      "seconds": 0.018,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_template_plan_passes_independent_textsql_node_and_result_keeps_period",
+      "status": "passed",
+      "seconds": 0.013,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_profit_clarification_resumes_to_sales_using_original_dates",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_request_tool_budget_applies_across_replanning",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_limit_hardcaps_cannot_be_overridden",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_successful_context_supports_followup_and_empty_data_is_explicit",
+      "status": "passed",
+      "seconds": 0.014,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_dimension_clarification_can_resume_with_global_scope",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[summary]",
+      "status": "passed",
+      "seconds": 0.012,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[trend]",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[comparison]",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[empty]",
+      "status": "passed",
+      "seconds": 0.012,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[dates]",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[profit]",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[customer]",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[unauthorized]",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[model_failure]",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[tool_failure]",
+      "status": "passed",
+      "seconds": 0.034,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[cancel]",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_fixed_baseline[resume]",
+      "status": "passed",
+      "seconds": 0.014,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_report_checker_rejects_wrong_numeric_date_or_source",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_relative_dates_use_injected_shanghai_day",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_report_records_failure_skip_duration_and_never_reads_raw_body",
+      "status": "passed",
+      "seconds": 0.015,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_live_is_never_inferred_from_old_result_file",
+      "status": "passed",
+      "seconds": 0.004,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_independent_oracle_groups_utc_rows_as_shanghai_days",
+      "status": "passed",
+      "seconds": 0.002,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_collection_error_cannot_look_like_empty_success",
+      "status": "passed",
+      "seconds": 0.005,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_independent_oracle_uses_shanghai_historical_dst",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_profit_asks_clarification_without_model_or_tools",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_missing_model_is_explicit",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_ambiguous_dates_ask_instead_of_inventing",
+      "status": "passed",
+      "seconds": 0.009,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_customer_product_filters_are_not_silently_ignored",
+      "status": "passed",
+      "seconds": 0.025,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-\\u6700\\u8fd17\\u5929\\u9500\\u552e-2026-10-14-2026-10-21]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u4eca\\u5929\\u9500\\u552e-2026-01-01-2026-01-02]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u6628\\u5929\\u9500\\u552e-2025-12-31-2026-01-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u672c\\u5468\\u9500\\u552e-2025-12-29-2026-01-02]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-01-\\u4e0a\\u5468\\u9500\\u552e-2025-12-22-2025-12-29]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-25-\\u672c\\u5468\\u9500\\u552e-2026-10-19-2026-10-26]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-26-\\u672c\\u5468\\u9500\\u552e-2026-10-26-2026-10-27]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2024-03-31-\\u4e0a\\u6708\\u9500\\u552e-2024-02-01-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2025-03-31-\\u4e0a\\u6708\\u9500\\u552e-2025-02-01-2025-03-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-01-31-\\u4e0a\\u6708\\u9500\\u552e-2025-12-01-2026-01-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2024-02-29-\\u672c\\u6708\\u9500\\u552e-2024-02-01-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-\\u672c\\u6708\\u9500\\u552e-2026-10-01-2026-10-21]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2024\\u5e742\\u6708\\u9500\\u552e-2024-02-01-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2025-02\\u9500\\u552e-2025-02-01-2025-03-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2026\\u5e7410\\u6708\\u9500\\u552e-2026-10-01-2026-10-21]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2025\\u5e7412\\u670831\\u65e5\\u81f32026\\u5e741\\u67082\\u65e5\\u9500\\u552e-2025-12-31-2026-01-03]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_calendar_ranges[2026-10-20-2024-2-28\\u81f32024-2-29\\u9500\\u552e-2024-02-28-2024-03-01]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2025-02-29\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-13\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026\\u5e740\\u6708\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.001,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-02-30\\u81f32026-03-01\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-10-03\\u81f32026-10-01\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u6700\\u8fd10\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u6700\\u8fd1367\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u6700\\u8fd11000\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[\\u4eca\\u5929\\u548c\\u6628\\u5929\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-10-01\\u81f3\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2\\u6708\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_or_ambiguous_new_dates_never_reuse_old_range[2026-10-01\\u81f32026-10-02\\u53ca2026-10-04\\u9500\\u552e]",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_current_message_overrides_original_range",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_zero_baseline_is_never_a_percentage_even_zero_to_zero",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_dates_then_metric_clarification_preserves_explicit_range",
+      "status": "passed",
+      "seconds": 0.014,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_income_requires_explicit_switch_to_order_amount",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_invalid_new_date_asks_again_instead_of_silently_using_history",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_datetime_clock_is_converted_to_shanghai_before_today_resolution",
+      "status": "passed",
+      "seconds": 0.012,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_declining_offered_metric_never_starts_analysis[\\u672c\\u6708\\u7ecf\\u8425\\u600e\\u4e48\\u6837-\\u4e0d\\u53ef\\u4ee5]",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_declining_offered_metric_never_starts_analysis[\\u672c\\u6708\\u5229\\u6da6-\\u4e0d\\u8981\\u5206\\u6790\\u9500\\u552e\\u989d]",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_declining_offered_metric_never_starts_analysis[\\u672c\\u6708\\u5ba2\\u6237\\u6392\\u540d-\\u4e0d\\u53ef\\u4ee5\\uff0c\\u4ecd\\u7136\\u6309\\u5ba2\\u6237]",
+      "status": "passed",
+      "seconds": 0.011,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_successful_sales_context_can_supply_both_missing_scope_and_metric",
+      "status": "passed",
+      "seconds": 0.01,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_shanghai_historical_dst_clock_uses_iana_zone_not_fixed_offset",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_planning_retry_keeps_one_clock_snapshot",
+      "status": "passed",
+      "seconds": 0.013,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_obvious_sensitive_question_fields_are_masked",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "deterministic-no-model",
+      "case": "test_iso_period_and_business_request_are_preserved",
+      "status": "passed",
+      "seconds": 0.0,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "historicalShanghaiDstUsesLocalMidnightRatherThanFixedUtcEight",
+      "status": "passed",
+      "seconds": 0.036,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "shippedOnlyUtcBoundariesPreviousPeriodAndZeroDays",
+      "status": "passed",
+      "seconds": 0.029,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "empty366DayRangeReturnsAllNaturalDaysAndStringZeroes",
+      "status": "passed",
+      "seconds": 0.08,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "independentDetailOracleChecksSummaryEveryDayAndMetadata",
+      "status": "passed",
+      "seconds": 0.027,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "ownerIsolationCsrfAndDefaultDeny",
+      "status": "passed",
+      "seconds": 2.221,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "sseFirstFrameArrivesBeforeUpstreamCompletesAndCancelPersists",
+      "status": "passed",
+      "seconds": 0.33,
+      "reason": ""
+    },
+    {
+      "layer": "mysql-test-tools",
+      "case": "toolCapabilitiesSafeTemplatesAndCallLimit",
+      "status": "passed",
+      "seconds": 0.647,
+      "reason": ""
+    },
+    {
+      "case": "summary",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 4.469,
+      "reason": ""
+    },
+    {
+      "case": "trend",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 3.588,
+      "reason": ""
+    },
+    {
+      "case": "comparison",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 6.837,
+      "reason": ""
+    },
+    {
+      "case": "empty",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 3.254,
+      "reason": ""
+    },
+    {
+      "case": "dates",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.048,
+      "reason": ""
+    },
+    {
+      "case": "profit",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.05,
+      "reason": ""
+    },
+    {
+      "case": "customer",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.056,
+      "reason": ""
+    },
+    {
+      "case": "cancel",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.262,
+      "reason": ""
+    },
+    {
+      "case": "resume",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 11.76,
+      "reason": ""
+    },
+    {
+      "case": "calendar_today",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 10.491,
+      "reason": ""
+    },
+    {
+      "case": "calendar_yesterday",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 3.554,
+      "reason": ""
+    },
+    {
+      "case": "calendar_this_week",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 4.228,
+      "reason": ""
+    },
+    {
+      "case": "calendar_last_week",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 3.169,
+      "reason": ""
+    },
+    {
+      "case": "calendar_this_month",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 4.619,
+      "reason": ""
+    },
+    {
+      "case": "calendar_last_month",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 4.261,
+      "reason": ""
+    },
+    {
+      "case": "calendar_selected_month",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 3.564,
+      "reason": ""
+    },
+    {
+      "case": "calendar_recent_days",
+      "layer": "real-model",
+      "scope": "java-http-e2e;fixed-clock=2026-10-20",
+      "status": "passed",
+      "seconds": 4.134,
+      "reason": ""
+    },
+    {
+      "case": "metric",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.048,
+      "reason": ""
+    },
+    {
+      "case": "revenue",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.046,
+      "reason": ""
+    },
+    {
+      "case": "invalid_date",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.047,
+      "reason": ""
+    },
+    {
+      "case": "metric_resume",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 3.654,
+      "reason": ""
+    },
+    {
+      "case": "unauthorized",
+      "layer": "real-model",
+      "scope": "java-http-e2e",
+      "status": "passed",
+      "seconds": 0.769,
+      "reason": ""
+    },
+    {
+      "case": "model_failure",
+      "layer": "real-model",
+      "scope": "agent-real-network-fault;not-java-relay",
+      "status": "passed",
+      "seconds": 0.299,
+      "reason": ""
+    },
+    {
+      "case": "tool_failure",
+      "layer": "real-model",
+      "scope": "agent-real-network-fault;not-java-relay",
+      "status": "passed",
+      "seconds": 6.744,
+      "reason": ""
+    }
+  ]
+}

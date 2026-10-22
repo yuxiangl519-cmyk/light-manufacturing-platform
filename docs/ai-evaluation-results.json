@@ -1,0 +1,731 @@
+{
+  "final": {
+    "suite": "ai-baseline-v1",
+    "fixedClock": "2026-10-02",
+    "model": "deepseek-v4-flash",
+    "results": [
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_decimal_growth_and_zero_baseline",
+        "status": "passed",
+        "seconds": 0.001,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_analysis_reports_only_source_numbers_and_anomalies",
+        "status": "passed",
+        "seconds": 0.001,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_mismatched_summary_trend_is_rejected",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fractional_order_count_is_rejected",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_real_graph_executes_nodes_and_decimal_report_with_test_doubles",
+        "status": "passed",
+        "seconds": 0.017,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_incomplete_evidence_conditionally_replans",
+        "status": "passed",
+        "seconds": 0.013,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_reflection_cannot_loop_forever",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_raw_sql_unknown_tools_and_changed_dates_are_rejected",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_http_auth_and_reject_caller_identity",
+        "status": "passed",
+        "seconds": 0.019,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_template_plan_passes_independent_textsql_node_and_result_keeps_period",
+        "status": "passed",
+        "seconds": 0.01,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_profit_clarification_resumes_to_sales_using_original_dates",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_request_tool_budget_applies_across_replanning",
+        "status": "passed",
+        "seconds": 0.032,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_limit_hardcaps_cannot_be_overridden",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_successful_context_supports_followup_and_empty_data_is_explicit",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_dimension_clarification_can_resume_with_global_scope",
+        "status": "passed",
+        "seconds": 0.024,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[summary]",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[trend]",
+        "status": "passed",
+        "seconds": 0.029,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[comparison]",
+        "status": "passed",
+        "seconds": 0.027,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[empty]",
+        "status": "passed",
+        "seconds": 0.028,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[dates]",
+        "status": "passed",
+        "seconds": 0.021,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[profit]",
+        "status": "passed",
+        "seconds": 0.009,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[customer]",
+        "status": "passed",
+        "seconds": 0.031,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[unauthorized]",
+        "status": "passed",
+        "seconds": 0.024,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[model_failure]",
+        "status": "passed",
+        "seconds": 0.007,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[tool_failure]",
+        "status": "passed",
+        "seconds": 0.009,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[cancel]",
+        "status": "passed",
+        "seconds": 0.009,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_fixed_baseline[resume]",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_report_checker_rejects_wrong_numeric_date_or_source",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_relative_dates_use_injected_shanghai_day",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_report_records_failure_skip_duration_and_never_reads_raw_body",
+        "status": "passed",
+        "seconds": 0.022,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_live_is_never_inferred_from_old_result_file",
+        "status": "passed",
+        "seconds": 0.005,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_independent_oracle_groups_utc_rows_as_shanghai_days",
+        "status": "passed",
+        "seconds": 0.002,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_collection_error_cannot_look_like_empty_success",
+        "status": "passed",
+        "seconds": 0.018,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_profit_asks_clarification_without_model_or_tools",
+        "status": "passed",
+        "seconds": 0.012,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_missing_model_is_explicit",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_ambiguous_dates_ask_instead_of_inventing",
+        "status": "passed",
+        "seconds": 0.011,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_customer_product_filters_are_not_silently_ignored",
+        "status": "passed",
+        "seconds": 0.03,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_obvious_sensitive_question_fields_are_masked",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "deterministic-no-model",
+        "case": "test_iso_period_and_business_request_are_preserved",
+        "status": "passed",
+        "seconds": 0.0,
+        "reason": ""
+      },
+      {
+        "layer": "mysql-test-tools",
+        "case": "shippedOnlyUtcBoundariesPreviousPeriodAndZeroDays",
+        "status": "passed",
+        "seconds": 0.056,
+        "reason": ""
+      },
+      {
+        "layer": "mysql-test-tools",
+        "case": "empty366DayRangeReturnsAllNaturalDaysAndStringZeroes",
+        "status": "passed",
+        "seconds": 0.093,
+        "reason": ""
+      },
+      {
+        "layer": "mysql-test-tools",
+        "case": "independentDetailOracleChecksSummaryEveryDayAndMetadata",
+        "status": "passed",
+        "seconds": 0.047,
+        "reason": ""
+      },
+      {
+        "layer": "mysql-test-tools",
+        "case": "ownerIsolationCsrfAndDefaultDeny",
+        "status": "passed",
+        "seconds": 3.305,
+        "reason": ""
+      },
+      {
+        "layer": "mysql-test-tools",
+        "case": "sseFirstFrameArrivesBeforeUpstreamCompletesAndCancelPersists",
+        "status": "passed",
+        "seconds": 0.499,
+        "reason": ""
+      },
+      {
+        "layer": "mysql-test-tools",
+        "case": "toolCapabilitiesSafeTemplatesAndCallLimit",
+        "status": "passed",
+        "seconds": 0.909,
+        "reason": ""
+      },
+      {
+        "case": "summary",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 25.203,
+        "reason": ""
+      },
+      {
+        "case": "trend",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 19.23,
+        "reason": ""
+      },
+      {
+        "case": "comparison",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 6.21,
+        "reason": ""
+      },
+      {
+        "case": "empty",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 7.883,
+        "reason": ""
+      },
+      {
+        "case": "dates",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 0.086,
+        "reason": ""
+      },
+      {
+        "case": "profit",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 0.069,
+        "reason": ""
+      },
+      {
+        "case": "customer",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 0.068,
+        "reason": ""
+      },
+      {
+        "case": "cancel",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 0.256,
+        "reason": ""
+      },
+      {
+        "case": "resume",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 5.482,
+        "reason": ""
+      },
+      {
+        "case": "unauthorized",
+        "layer": "real-model",
+        "scope": "java-http-e2e",
+        "status": "passed",
+        "seconds": 0.876,
+        "reason": ""
+      },
+      {
+        "case": "model_failure",
+        "layer": "real-model",
+        "scope": "agent-real-network-fault;not-java-relay",
+        "status": "passed",
+        "seconds": 1.313,
+        "reason": ""
+      },
+      {
+        "case": "tool_failure",
+        "layer": "real-model",
+        "scope": "agent-real-network-fault;not-java-relay",
+        "status": "passed",
+        "seconds": 3.364,
+        "reason": ""
+      }
+    ]
+  },
+  "realModelRuns": [
+    {
+      "suite": "ai-baseline-v1",
+      "database": "mini_mfg_test",
+      "model": "deepseek-v4-flash",
+      "results": [
+        {
+          "case": "summary",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 5.404,
+          "reason": ""
+        },
+        {
+          "case": "trend",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 6.936,
+          "reason": ""
+        },
+        {
+          "case": "comparison",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 18.429,
+          "reason": ""
+        },
+        {
+          "case": "empty",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 5.051,
+          "reason": ""
+        },
+        {
+          "case": "dates",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.175,
+          "reason": ""
+        },
+        {
+          "case": "profit",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.172,
+          "reason": ""
+        },
+        {
+          "case": "customer",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.178,
+          "reason": ""
+        },
+        {
+          "case": "cancel",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.341,
+          "reason": ""
+        },
+        {
+          "case": "resume",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "failed",
+          "seconds": 21.821,
+          "reason": "Terminal status mismatch"
+        },
+        {
+          "case": "unauthorized",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 1.222,
+          "reason": ""
+        },
+        {
+          "case": "model_failure",
+          "layer": "real-model",
+          "scope": "agent-real-network-fault;not-java-relay",
+          "status": "passed",
+          "seconds": 0.689,
+          "reason": ""
+        },
+        {
+          "case": "tool_failure",
+          "layer": "real-model",
+          "scope": "agent-real-network-fault;not-java-relay",
+          "status": "passed",
+          "seconds": 4.663,
+          "reason": ""
+        }
+      ]
+    },
+    {
+      "suite": "ai-baseline-v1",
+      "database": "mini_mfg_test",
+      "model": "deepseek-v4-flash",
+      "results": [
+        {
+          "case": "summary",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 7.845,
+          "reason": ""
+        },
+        {
+          "case": "trend",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 6.896,
+          "reason": ""
+        },
+        {
+          "case": "comparison",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 7.621,
+          "reason": ""
+        },
+        {
+          "case": "empty",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 7.283,
+          "reason": ""
+        },
+        {
+          "case": "dates",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.162,
+          "reason": ""
+        },
+        {
+          "case": "profit",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.138,
+          "reason": ""
+        },
+        {
+          "case": "customer",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.149,
+          "reason": ""
+        },
+        {
+          "case": "cancel",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.317,
+          "reason": ""
+        },
+        {
+          "case": "resume",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 4.928,
+          "reason": ""
+        },
+        {
+          "case": "unauthorized",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 1.186,
+          "reason": ""
+        },
+        {
+          "case": "model_failure",
+          "layer": "real-model",
+          "scope": "agent-real-network-fault;not-java-relay",
+          "status": "passed",
+          "seconds": 0.75,
+          "reason": ""
+        },
+        {
+          "case": "tool_failure",
+          "layer": "real-model",
+          "scope": "agent-real-network-fault;not-java-relay",
+          "status": "passed",
+          "seconds": 5.053,
+          "reason": ""
+        }
+      ]
+    },
+    {
+      "suite": "ai-baseline-v1",
+      "database": "mini_mfg_test",
+      "model": "deepseek-v4-flash",
+      "results": [
+        {
+          "case": "summary",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 25.203,
+          "reason": ""
+        },
+        {
+          "case": "trend",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 19.23,
+          "reason": ""
+        },
+        {
+          "case": "comparison",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 6.21,
+          "reason": ""
+        },
+        {
+          "case": "empty",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 7.883,
+          "reason": ""
+        },
+        {
+          "case": "dates",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.086,
+          "reason": ""
+        },
+        {
+          "case": "profit",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.069,
+          "reason": ""
+        },
+        {
+          "case": "customer",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.068,
+          "reason": ""
+        },
+        {
+          "case": "cancel",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.256,
+          "reason": ""
+        },
+        {
+          "case": "resume",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 5.482,
+          "reason": ""
+        },
+        {
+          "case": "unauthorized",
+          "layer": "real-model",
+          "scope": "java-http-e2e",
+          "status": "passed",
+          "seconds": 0.876,
+          "reason": ""
+        },
+        {
+          "case": "model_failure",
+          "layer": "real-model",
+          "scope": "agent-real-network-fault;not-java-relay",
+          "status": "passed",
+          "seconds": 1.313,
+          "reason": ""
+        },
+        {
+          "case": "tool_failure",
+          "layer": "real-model",
+          "scope": "agent-real-network-fault;not-java-relay",
+          "status": "passed",
+          "seconds": 3.364,
+          "reason": ""
+        }
+      ]
+    }
+  ]
+}

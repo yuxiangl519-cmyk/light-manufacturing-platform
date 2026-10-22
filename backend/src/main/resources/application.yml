@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: light-manufacturing
+  profiles:
+    default: local
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  datasource:
+    hikari:
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+  flyway:
+    clean-disabled: true
+    validate-on-migrate: true
+  session:
+    timeout: 30m
+    redis:
+      namespace: ${mfg.redis-prefix}session
+      flush-mode: on_save
+  data:
+    redis:
+      repositories:
+        enabled: false
+      timeout: 2s
+      connect-timeout: 2s
+server:
+  port: ${MFG_PORT:8081}
+  servlet:
+    session:
+      cookie:
+        name: LIGHT_MFG_SESSION
+        http-only: true
+        same-site: lax
+        path: /
+        secure: ${MFG_COOKIE_SECURE:false}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+      show-components: never
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+mfg:
+  bootstrap-enabled: ${MFG_BOOTSTRAP_ENABLED:false}
+  ai:
+    service-token: ${MFG_AI_SERVICE_TOKEN:}
+    agent-url: ${MFG_AI_AGENT_URL:http://127.0.0.1:8091}
+    tenant: ${MFG_AI_TENANT:local-factory}
+logging:
+  level:
+    org.hibernate.SQL: OFF
+    org.hibernate.orm.jdbc.bind: OFF
+    org.springframework.web: WARN

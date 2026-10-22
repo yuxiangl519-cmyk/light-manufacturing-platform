@@ -1,0 +1,32 @@
+{
+  "database": "mini_mfg_test",
+  "model": "deepseek-v4-flash",
+  "results": [
+    {
+      "check": "Live DeepSeek StateGraph + ERP exact amount + MySQL history",
+      "passed": true,
+      "conversationId": "16",
+      "salesAmount": "115248.00",
+      "nodes": [
+        "Analyzer",
+        "Executor",
+        "Gateway",
+        "Planner",
+        "Reflection",
+        "Reporter"
+      ]
+    },
+    {
+      "check": "Profit clarification persisted and real model continuation completed",
+      "passed": true
+    },
+    {
+      "check": "Live empty data reports zero with no fabricated business facts",
+      "passed": true
+    },
+    {
+      "check": "Forged tenant rejected and anonymous API denied",
+      "passed": true
+    }
+  ]
+}
