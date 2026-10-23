@@ -33,12 +33,24 @@
     "runtimeErrors": []
   },
   "ci": {
-    "status": "workflow added; remote run not yet verified"
+    "status": "workflow parsed and pushed; GitHub returned no workflow runs for full implementation SHA; remote execution not verified"
   },
   "limits": [
     "single factory, in-process grants/run handles/snapshot bundles",
     "no persistent LangGraph Checkpointer",
     "provider usage only when returned; no cost estimation",
     "no real model validation in this run"
-  ]
+  ],
+  "git": {
+    "implementationCommit": "cc13139e5705688df6bc8bab0619838f708ed066",
+    "branch": "codex/security-ai-hardening",
+    "remoteBackup": "pushed and tracked"
+  },
+  "evaluationEntry": {
+    "script": "scripts/Test-AiEvaluation.ps1",
+    "passed": true,
+    "deterministic": 258,
+    "mysqlTools": 29,
+    "realModel": "not-run; requires explicit -Live"
+  }
 }

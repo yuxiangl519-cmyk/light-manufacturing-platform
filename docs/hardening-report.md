@@ -39,3 +39,11 @@ CI含前端锁文件安装/审计/类型/单测/构建、Java17全单元与独�
 保留单工厂、单应用实例边界。额度/记录跨重启持久化，但grant、运行句柄和bundle仍在内存；过期任务标错后重新发起，不是从节点恢复。未配置LangGraph持久化Checkpointer，不宣称多租户SaaS、高可用或所有工具同一全局快照。未进行生产部署、所有依赖生态全面安全扫描或本轮真实模型验收。没有返回的token/费用不估计。
 
 详细说明：[依赖](dependency-security-2026-10-22.md)、[额度](ai-quota.md)、[销售口径与快照](sales-basis-snapshot.md)。
+
+## 交付状态
+
+实现提交 `cc13139e5705688df6bc8bab0619838f708ed066` 已推送并跟踪 `origin/codex/security-ai-hardening`；工作分支留在此处，main未合并。
+
+更新后的Test-AiEvaluation.ps1已实际执行成功：258项确定性、29项MySQL工具检查通过；真实模型explicit-live-suite记录not-run。工作流YAML解析、3个job及所有Action固定40位SHA检查通过。
+
+GitHub连接器以完整实现SHA查询返回空运行记录；公共Actions API也未能返回运行结果。因此远程CI执行仍未验证，不能把本地成功等同GitHub绿色检查。
