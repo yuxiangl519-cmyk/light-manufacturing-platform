@@ -202,3 +202,7 @@
 ## 2026-10-21 第二轮简约界面
 
 按用户截图完成第二轮减法优化：去掉装饰小字与重复容器，以对话和输入为主。19单测、11组界面回归、typecheck/build通过；未调用真实模型。详见 [第二轮报告](minimal-ui-chat-report.md)。
+
+## 2026-10-23 安全与分析一致性补齐
+
+补齐依赖安全修复、每用户频率/自然日额度、持久调用记录、创建/发货双日期口径、同范围销售bundle一致读取、Git安全门禁和GitHub Actions。初始Git提交及origin/main本已存在，未重复初始化。本轮状态与未验证项见hardening-report.md。详见 [交付与验证](hardening-report.md)、[额度](ai-quota.md)、[销售口径与快照](sales-basis-snapshot.md)。

@@ -11,7 +11,8 @@ public final class AiDtos {
   public record Conversation(String id,String title,String status,Instant updatedAt) {}
   public record Message(String id,String role,String content,Instant createdAt) {}
   public record Detail(String id,String title,String status,List<Message> messages,String pendingQuestion,com.fasterxml.jackson.databind.JsonNode context) {}
-  public record Query(java.time.LocalDate startDate,java.time.LocalDate endDate,String templateId, String dimension, String entityId, @Size(max=120) String query, Integer limit, String warehouseId, String materialId, String productionOrderId) {
-    public Query(java.time.LocalDate startDate,java.time.LocalDate endDate,String templateId,String dimension,String entityId,String query,Integer limit){this(startDate,endDate,templateId,dimension,entityId,query,limit,null,null,null);}
+  public record Query(java.time.LocalDate startDate,java.time.LocalDate endDate,String templateId, String dimension, String entityId, @Size(max=120) String query, Integer limit, String warehouseId, String materialId, String productionOrderId, String dateBasis) {
+    public Query(java.time.LocalDate startDate,java.time.LocalDate endDate,String templateId,String dimension,String entityId,String query,Integer limit,String warehouseId,String materialId,String productionOrderId){this(startDate,endDate,templateId,dimension,entityId,query,limit,warehouseId,materialId,productionOrderId,null);}
+    public Query(java.time.LocalDate startDate,java.time.LocalDate endDate,String templateId,String dimension,String entityId,String query,Integer limit){this(startDate,endDate,templateId,dimension,entityId,query,limit,null,null,null,null);}
   }
 }

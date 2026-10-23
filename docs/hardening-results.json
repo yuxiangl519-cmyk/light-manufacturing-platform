@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-23",
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "backend": {
+    "unitPassed": 36,
+    "integrationPassed": 76,
+    "failed": 0,
+    "fullMavenSeconds": 117
+  },
+  "python": {
+    "passed": 258,
+    "failed": 0,
+    "seconds": 5.132,
+    "realModel": false
+  },
+  "frontend": {
+    "typecheck": "passed",
+    "unitPassed": 20,
+    "build": "passed",
+    "viteBuildSeconds": 14.94
+  },
+  "browser": {
+    "type": "isolated UI fixtures; no real model or DB",
+    "passed": 11,
+    "failed": 0,
+    "runtimeErrors": []
+  },
+  "ci": {
+    "status": "workflow added; remote run not yet verified"
+  },
+  "limits": [
+    "single factory, in-process grants/run handles/snapshot bundles",
+    "no persistent LangGraph Checkpointer",
+    "provider usage only when returned; no cost estimation",
+    "no real model validation in this run"
+  ]
+}

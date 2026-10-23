@@ -6,6 +6,10 @@ import java.util.Map;
 
 class AiContextTest {
   final ObjectMapper json=new ObjectMapper();
+  @Test void dateDefinitionSurvivesRefreshButOnlyFixedColumnsAreAccepted(){
+    assertEquals("shipped_at",AiContext.clean(json.createObjectNode().put("dateBasis","shipped_at")).path("dateBasis").asText());
+    assertFalse(AiContext.clean(json.createObjectNode().put("dateBasis","arbitrary_column")).has("dateBasis"));
+  }
   @Test void persistenceAcceptsOnlyBoundedConditionsAndNeverRawHistoryOrResults()throws Exception{
     var input=json.readTree("""
       {"version":1,"domain":"sales","startDate":"2026-10-01","endDate":"2026-10-03","metric":"sales","dimension":"customer","entityId":"11",

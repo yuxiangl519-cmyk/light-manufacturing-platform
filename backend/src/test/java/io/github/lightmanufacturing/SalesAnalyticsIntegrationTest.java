@@ -124,6 +124,25 @@ class SalesAnalyticsIntegrationTest {
         Map.of("date","1990-06-02","salesAmount","20.02","orderCount","1")),points);
   }
 
+  @Test void shippedDateUsesActualShipmentRatherThanCreationAndKeepsLegacyDefault() {
+    LocalDate start=LocalDate.of(2410,3,1),end=start.plusDays(2);
+    Instant boundary=start.atStartOfDay(ZoneId.of("Asia/Shanghai")).toInstant();
+    order(boundary.minusSeconds(86400),"SHIPPED","15.00",false);
+    order(boundary,"SHIPPED","22.00",false);
+    order(boundary,"SHIPPED","33.00",false);
+    jdbc.update("update sales_order set shipped_at=? where customer_id=? and total_amount=15",Timestamp.from(boundary),customer);
+    jdbc.update("update sales_order set shipped_at=? where customer_id=? and total_amount=22",Timestamp.from(boundary.plusSeconds(86400)),customer);
+    jdbc.update("update sales_order set shipped_at=? where customer_id=? and total_amount=33",Timestamp.from(boundary.plusSeconds(172800)),customer);
+    assertEquals(Map.of("salesAmount","55.00","orderCount","2"),sales.summary(start,end).get("current"));
+    var shipment=sales.summary(start,end,"shipped_at");
+    assertEquals(Map.of("salesAmount","37.00","orderCount","2"),shipment.get("current"));
+    assertEquals("shipped_at",shipment.get("dateBasis"));
+    assertTrue(shipment.get("definition").toString().contains("不是收入或利润"));
+    @SuppressWarnings("unchecked") var points=(List<Map<String,String>>)sales.trend(start,end,"shipped_at").get("points");
+    assertEquals("15.00",points.get(0).get("salesAmount"));assertEquals("22.00",points.get(1).get("salesAmount"));
+    assertThrows(ApiException.class,()->sales.summary(start,end,"confirmed_at"));
+  }
+
   private void order(Instant created, String status, String amount, boolean deleted) {
     jdbc.update("""
         insert into sales_order(created_at,updated_at,created_by,updated_by,order_no,

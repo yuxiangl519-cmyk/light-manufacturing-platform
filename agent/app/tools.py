@@ -1,6 +1,6 @@
 import json
 from datetime import date
-from typing import Protocol
+from typing import Protocol, Literal
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -10,6 +10,7 @@ from .config import Settings
 
 class ToolArgs(BaseModel):
     model_config = ConfigDict(extra='forbid')
+    dateBasis: Literal["created_at", "shipped_at"] = "created_at"
     startDate: date
     endDate: date
     templateId: str | None = None
@@ -41,6 +42,7 @@ class OperationsArgs(BaseModel):
 
 class RankingArgs(BaseModel):
     model_config = ConfigDict(extra='forbid')
+    dateBasis: Literal["created_at", "shipped_at"] = "created_at"
     startDate: date
     endDate: date
     limit: int = Field(default=10, ge=1, le=20, strict=True)
@@ -48,6 +50,7 @@ class RankingArgs(BaseModel):
 
 class ResolveArgs(BaseModel):
     model_config = ConfigDict(extra='forbid')
+    dateBasis: Literal["created_at", "shipped_at"] = "created_at"
     startDate: date
     endDate: date
     dimension: str
@@ -56,6 +59,7 @@ class ResolveArgs(BaseModel):
 
 class EntityArgs(BaseModel):
     model_config = ConfigDict(extra='forbid')
+    dateBasis: Literal["created_at", "shipped_at"] = "created_at"
     startDate: date
     endDate: date
     dimension: str
@@ -101,6 +105,7 @@ def validate_call(name: str, arguments: dict, period: dict, *, scope=None):
             if key == 'entityId' and int(args.entityId) > 9223372036854775807:
                 raise ValueError('ID outside backend range')
         result = args.model_dump(mode='json')
+        if 'dateBasis' not in arguments:result.pop('dateBasis',None)
         ToolArgs.model_validate({k:result[k] for k in ('startDate','endDate')})
         if any(result[k] != period[k] for k in ('startDate','endDate')):
             raise ValueError('Date mismatch')
@@ -111,6 +116,7 @@ def validate_call(name: str, arguments: dict, period: dict, *, scope=None):
     if name != 'execute_safe_query' and args.templateId is not None:
         raise ValueError('Unexpected template')
     result = args.model_dump(mode='json', exclude_none=True)
+    if 'dateBasis' not in arguments:result.pop('dateBasis',None)
     if any(result[key] != period[key] for key in ('startDate', 'endDate')):
         raise ValueError('Model may not alter resolved dates')
     return result
@@ -147,7 +153,15 @@ class ErpTools:
             response.raise_for_status()
             data = response.json()
             # ERP uses the standard API envelope on successful responses.
-            return data['data'] if isinstance(data, dict) and 'data' in data else data
+            result = data['data'] if isinstance(data, dict) and 'data' in data else data
+            if name not in OPERATION_TOOLS and name != 'resolve_sales_entity':
+                if not isinstance(result, dict):raise ValueError('Invalid sales evidence')
+                expected = arguments.get('dateBasis', 'created_at')
+                parts = [result] + ([result.get('summary', {}), result.get('trend', {})] if name == 'get_entity_sales' else [])
+                if any(not isinstance(p, dict) or not isinstance(p.get('snapshotId'), str) or not p['snapshotId'] or p.get('dateBasis') != expected for p in parts):
+                    raise ValueError('Sales evidence lacks a verified snapshot/date basis')
+                if len({p['snapshotId'] for p in parts}) != 1:raise ValueError('Entity snapshot IDs differ')
+            return result
 
 
 class ToolAdapter(Protocol):

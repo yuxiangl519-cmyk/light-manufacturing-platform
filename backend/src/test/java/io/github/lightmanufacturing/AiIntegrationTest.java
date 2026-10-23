@@ -23,7 +23,7 @@ import org.springframework.test.context.*;
 
 /** Local stub verifies relay mechanics only; live LangGraph/model verification is separate. */
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.RANDOM_PORT,
- properties="mfg.ai.service-token=integration-test-only-shared-token-32")
+ properties={"mfg.ai.service-token=integration-test-only-shared-token-32","mfg.ai.quota.per-minute=10000","mfg.ai.quota.per-day=100000"})
 @ActiveProfiles("test")
 class AiIntegrationTest {
   static final String SERVICE="integration-test-only-shared-token-32";
@@ -32,6 +32,16 @@ class AiIntegrationTest {
   static final CountDownLatch release=new CountDownLatch(1);
   static {try{upstream=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);upstream.createContext("/v1/analyze",exchange->{
     var incoming=new ObjectMapper().readTree(exchange.getRequestBody().readAllBytes());exchange.getResponseHeaders().add("Content-Type","text/event-stream");exchange.sendResponseHeaders(200,0);
+    if(incoming.path("message").asText().equals("stage9-usage-probe")){
+      try(var out=exchange.getResponseBody()){out.write("""
+        event: result
+        data: {"content":"用量传输桩，不是真实模型","context":{},"execution":{"modelCalls":3,"elapsedMs":1250,"usageReports":1,"usage":{"prompt_tokens":100,"completion_tokens":20}}}
+
+        event: done
+        data: {"status":"completed"}
+
+        """.getBytes(StandardCharsets.UTF_8));}finally{exchange.close();}return;
+    }
     if(incoming.path("message").asText().startsWith("stage6-")){
       try(var out=exchange.getResponseBody()){
         if(incoming.path("message").asText().equals("stage6-resume-probe"))out.write(("event: stage\ndata: {\"node\":\"Context\",\"message\":\"测试条件，不是模型\",\"context\":{\"version\":1,\"domain\":\"sales\",\"metric\":\"sales\",\"startDate\":\"2026-10-01\",\"endDate\":\"2026-10-03\",\"dimension\":\"customer\",\"entityQuery\":\"重名公司\",\"question\":\"entity\",\"gatewayToken\":\"must-not-persist\"}}\n\nevent: error\ndata: {\"code\":\"MODEL_REQUEST_FAILED\",\"message\":\"显式模型失败传输桩\"}\n\nevent: done\ndata: {\"status\":\"error\"}\n\n").getBytes(StandardCharsets.UTF_8));
@@ -168,6 +178,18 @@ class AiIntegrationTest {
     for(int i=0;i<199;i++)jdbc.update("insert into ai_message(conversation_id,role,content,created_at) values(?,'user','固定历史长度边界',UTC_TIMESTAMP(3))",id);
     admin.expect("POST","/api/v1/ai/conversations/"+id+"/messages",Map.of("message","不应调用上游"),409);
     assertEquals(199,jdbc.queryForObject("select count(*) from ai_message where conversation_id=?",Integer.class,id));
+  }
+  @Test void usageFromResultEventIsPersistedWhenDoneHasNoStatisticsAndRemainsOwnerScoped()throws Exception{
+    String id=admin.expect("POST","/api/v1/ai/conversations",Map.of(),201).path("id").asText();
+    admin.sendAnalysis(id,"stage9-usage-probe");
+    var rows=admin.expect("GET","/api/v1/ai/conversations/calls",null,200);
+    JsonNode found=null;for(var row:rows)if(row.path("conversationId").asText().equals(id))found=row;
+    assertNotNull(found);assertEquals("COMPLETED",found.path("status").asText());
+    assertEquals(3,found.path("modelCalls").asInt());assertEquals(100,found.path("inputTokens").asInt());assertEquals(20,found.path("outputTokens").asInt());
+    assertEquals("Asia/Shanghai",admin.expect("GET","/api/v1/ai/conversations/quota",null,200).path("timezone").asText());
+    new Client().expect("GET","/api/v1/ai/conversations/calls",null,401);
+    Client viewer=new Client();viewer.login("viewer",System.getenv("MFG_VIEWER_PASSWORD"));
+    for(var row:viewer.expect("GET","/api/v1/ai/conversations/calls",null,200))assertNotEquals(id,row.path("conversationId").asText());
   }
   private URI uri(String path){return URI.create("http://localhost:"+port+path);}
   private HttpResponse<String> internal(String name,Object body,String ticket,boolean auth)throws Exception{var request=HttpRequest.newBuilder(uri("/internal/ai/tools/"+name)).header("Content-Type","application/json").header("X-AI-Context",ticket);if(auth)request.header("Authorization","Bearer "+SERVICE);return HttpClient.newHttpClient().send(request.POST(HttpRequest.BodyPublishers.ofString(json.writeValueAsString(body))).build(),HttpResponse.BodyHandlers.ofString());}

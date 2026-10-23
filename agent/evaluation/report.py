@@ -14,7 +14,9 @@ def summarize(root, live=False):
         'TEST-io.github.lightmanufacturing.AiIntegrationTest.xml',
         'TEST-io.github.lightmanufacturing.SalesDimensionsIntegrationTest.xml',
         'TEST-io.github.lightmanufacturing.AiOperationsIntegrationTest.xml',
-        'TEST-io.github.lightmanufacturing.AiEvidenceIntegrationTest.xml')]
+        'TEST-io.github.lightmanufacturing.AiEvidenceIntegrationTest.xml',
+        'TEST-io.github.lightmanufacturing.AiQuotaIntegrationTest.xml',
+        'TEST-io.github.lightmanufacturing.SalesSnapshotIntegrationTest.xml')]
     for layer, path in files:
         if not path.exists():
             results.append(dict(layer=layer, case=path.name, status='not-run', seconds=0, reason='No fresh JUnit report'))

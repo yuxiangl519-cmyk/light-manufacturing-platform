@@ -7,7 +7,7 @@ $python=Join-Path $root 'agent/.venv/Scripts/python.exe'
 $out=Join-Path $root 'output/ai-evaluation'
 New-Item -ItemType Directory -Force $out | Out-Null
 # Remove only named prior evaluation artifacts; never touch test/development data.
-foreach($name in @('unit.xml','live.json','report.json','report.md','TEST-io.github.lightmanufacturing.SalesAnalyticsIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiIntegrationTest.xml','TEST-io.github.lightmanufacturing.SalesDimensionsIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiOperationsIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiEvidenceIntegrationTest.xml')) {
+foreach($name in @('unit.xml','live.json','report.json','report.md','TEST-io.github.lightmanufacturing.SalesAnalyticsIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiIntegrationTest.xml','TEST-io.github.lightmanufacturing.SalesDimensionsIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiOperationsIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiEvidenceIntegrationTest.xml','TEST-io.github.lightmanufacturing.AiQuotaIntegrationTest.xml','TEST-io.github.lightmanufacturing.SalesSnapshotIntegrationTest.xml')) {
     $path=Join-Path $out $name
     if(Test-Path -LiteralPath $path){Remove-Item -LiteralPath $path}
 }
@@ -22,8 +22,8 @@ try {
     & $python -m pytest agent/tests -q "--junitxml=$out/unit.xml"
     $unitExit=$LASTEXITCODE
     Push-Location backend
-    try { & ./mvnw.cmd -B -P integration '-Dit.test=SalesAnalyticsIntegrationTest,AiIntegrationTest,SalesDimensionsIntegrationTest,AiOperationsIntegrationTest,AiEvidenceIntegrationTest' verify *> (Join-Path $out 'backend.log'); $backendExit=$LASTEXITCODE } finally { Pop-Location }
-    foreach($name in @('SalesAnalyticsIntegrationTest','AiIntegrationTest','SalesDimensionsIntegrationTest','AiOperationsIntegrationTest','AiEvidenceIntegrationTest')){
+    try { & ./mvnw.cmd -B -P integration '-Dit.test=SalesAnalyticsIntegrationTest,AiIntegrationTest,SalesDimensionsIntegrationTest,AiOperationsIntegrationTest,AiEvidenceIntegrationTest,AiQuotaIntegrationTest,SalesSnapshotIntegrationTest' verify *> (Join-Path $out 'backend.log'); $backendExit=$LASTEXITCODE } finally { Pop-Location }
+    foreach($name in @('SalesAnalyticsIntegrationTest','AiIntegrationTest','SalesDimensionsIntegrationTest','AiOperationsIntegrationTest','AiEvidenceIntegrationTest','AiQuotaIntegrationTest','SalesSnapshotIntegrationTest')){
         $path=Join-Path $root "backend/target/failsafe-reports/TEST-io.github.lightmanufacturing.$name.xml"
         if((Test-Path -LiteralPath $path) -and (Get-Item -LiteralPath $path).LastWriteTime -ge (Get-Item -LiteralPath (Join-Path $out 'unit.xml')).LastWriteTime){Copy-Item -LiteralPath $path -Destination $out}
     }

@@ -43,18 +43,18 @@ Boot 固定父 POM + BOM 会锁定传递依赖；不得将表中每项再任意�
 | 包/工具 | 固定版本 |
 | --- | --- |
 | Node.js / npm | 24.13.0 / 11.6.2 |
-| vue | 3.5.22 |
+| vue | 3.5.42 |
 | typescript | 5.9.3 |
-| vite | 7.1.12 |
+| vite | 7.3.7 |
 | @vitejs/plugin-vue | 6.0.1 |
 | vue-router | 4.5.1 |
 | pinia | 3.0.3 |
-| axios | 1.12.2 |
+| axios | 1.20.0 |
 | element-plus | 2.11.5 |
-| echarts | 6.0.0 |
+| echarts | 6.1.0 |
 | vue-tsc | 3.1.1 |
 | @types/node | 24.10.0 |
-| vitest | 3.2.4 |
+| vitest | 4.1.12 |
 | @playwright/test | 1.56.1 |
 
 以上版本均读取 npm 官方注册表相应版本的元数据确认存在及 engines/peerDependencies。依赖字段写精确版本，不使用 ^/~/*/latest；传递版本由提交的 package-lock.json 固定，安装使用 npm ci。官方工具自身 peer 范围是兼容声明，不是本项目动态版本配置。
@@ -68,3 +68,7 @@ Boot 固定父 POM + BOM 会锁定传递依赖；不得将表中每项再任意�
 ## AI增量（2026-10-19）
 
 未升级现有Java/Vue依赖。Python实测3.13.5；FastAPI0.115.12、Uvicorn0.34.2、HTTPX0.28.1、LangGraph1.0.10、pytest8.3.5、pytest-asyncio0.26.0，直接版本见agent/requirements.txt，完整传递锁定见agent/requirements.lock.txt。pip check无冲突、21测试通过。依据及API链接见agent/README.md。未进行新增Python依赖完整漏洞审计，不把兼容性检查称安全验收。
+
+## 2026-10-23 授权安全修复
+
+用户明确授权本轮依赖修复。前端表中五项更新为当前精确版本；其余原基线兼容记录为历史说明。Vitest 4 是为修复 3.x 未覆盖的 mocker 公告，非业务技术栈迁移。真实审计与适用条件见 [安全报告](dependency-security-2026-10-22.md)。

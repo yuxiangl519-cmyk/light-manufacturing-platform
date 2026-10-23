@@ -23,3 +23,5 @@ agent/.venv/
 output/ai-evaluation/
 output/ai-acceptance/
 output/ai-decision-loop/
+
+.ci-venv/

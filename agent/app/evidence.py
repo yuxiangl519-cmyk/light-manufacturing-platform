@@ -33,12 +33,15 @@ class EvidenceEngine:
 
     def paired(self,first,second,period,tools,dimensions=(None,None)):
         times=[self.metadata(data,period,tool,dim) for data,tool,dim in zip((first,second),tools,dimensions)]
+        ids=[d.get('snapshotId') for d in (first,second)]
+        if any(ids) and (not all(ids) or ids[0]!=ids[1]):raise MissingEvidence('Sales results do not share one atomic snapshot')
+        if first.get('dateBasis','created_at')!=second.get('dateBasis','created_at'):raise MissingEvidence('Sales date basis mismatch')
         if abs((times[0]-times[1]).total_seconds())>self.rules.maximum_read_skew_seconds:
             raise ValueError('Incompatible read timestamps')
 
     def fact(self,id,statement,current,comparison,formula,data,period,tools,**extra):
         return {'id':id,'statement':statement,'definition':data[0]['definition'],'period':dict(period),
-                'timezone':'Asia/Shanghai','asOf':dict(zip(tools,[d['asOf'] for d in data])),
+                'snapshotId':data[0].get('snapshotId'),'dateBasis':data[0].get('dateBasis','created_at'),'snapshotScope':data[0].get('snapshotScope'),'timezone':'Asia/Shanghai','asOf':dict(zip(tools,[d['asOf'] for d in data])),
                 'sources':dict(zip(tools,[d['source'] for d in data])), 'current':current,'comparison':comparison,
                 'formula':formula,'tools':list(tools),'flagged':False,**extra}
 
@@ -55,7 +58,9 @@ class EvidenceEngine:
             if count!=count.to_integral_value() or (count==0 and number(row['salesAmount'])!=0):raise ValueError('Impossible order count/amount')
         previous_period={'startDate':str(start-(end-start)),'endDate':str(start)}
         if summary.get('previousPeriod',previous_period)!=previous_period:raise ValueError('Comparison period mismatch')
-        dossier=self.dossier();enough=all(number(summary[k]['orderCount'])>=self.rules.minimum_orders for k in ('current','previous'))
+        dossier=self.dossier()
+        if not summary.get('snapshotId'):dossier['unanswered'].append('缺少原子快照标识，查询时刻接近不代表同一快照；这些旧格式数据不能证明跨工具读取一致性。')
+        enough=all(number(summary[k]['orderCount'])>=self.rules.minimum_orders for k in ('current','previous'))
         for key,label,minimum in [('salesAmount','含税已发货销售额',self.rules.amount_delta),('orderCount','已发货订单数',Decimal(self.rules.order_delta))]:
             a,b=(number(summary[k][key]) for k in ('current','previous'))
             rate=growth(a,b)
@@ -66,7 +71,7 @@ class EvidenceEngine:
             fact=self.fact(key,f'{scope} {label}：{current}，等长上期{previous}',current,previous,
                 f'({current}−{previous})/{previous}×100%，上期为0时不计算；{previous_period["startDate"]}至{previous_period["endDate"]}为相邻等长上期',
                 (summary,trend),period,tools,rate=rate,flagged=flagged,assessment=assessment,scope=scope,comparisonPeriod=previous_period)
-            if key=='orderCount':fact['definition']='按销售单创建时间筛选当前SHIPPED、未删除且属于该范围的销售单，按销售单ID去重计数；跨商品订单数不可直接相加'
+            if key=='orderCount':fact['definition']=('按实际发货时间' if summary.get('dateBasis')=='shipped_at' else '按销售单创建时间')+'筛选当前SHIPPED、未删除且属于该范围的销售单，按销售单ID去重计数；跨商品订单数不可直接相加'
             dossier['facts'].append(fact)
             if flagged:
                 dossier['actions'].append({'evidence':key,'text':f'核对{scope}在{period["startDate"]}至{period["endDate"]}及等长上期的已发货订单，按{label}差额{abs(a-b)}定位变动订单；先核实发货节奏。'})
@@ -106,6 +111,7 @@ class EvidenceEngine:
         if sum((number(r['salesAmount']) for r in rows),Decimal(0))>total or sum((number(r['orderCount']) for r in rows),Decimal(0))>orders:raise ValueError('Ranking exceeds total')
         if (total>0 and not rows) or (not total and any(number(r['salesAmount'])>0 for r in rows)) or (not orders and total):raise ValueError('Conflicting denominator')
         dossier=self.dossier()
+        if not summary.get('snapshotId'):dossier['unanswered'].append('缺少原子快照标识，不能确认跨工具读取一致性。')
         if not total or orders<self.rules.minimum_orders:
             dossier['unanswered'].append(f'客户集中度未计算：本期总销售额为零或订单少于{self.rules.minimum_orders}单，样本不足。')
             return dossier
@@ -162,6 +168,7 @@ def render_evidence(dossier,maximum=DEFAULT_RULES.maximum_expanded_facts):
                   f'  定义：{safe(f["definition"])}；范围：{period_text}；Asia/Shanghai。',
                   f'  方法：{safe(f["formula"])}；判断：{safe(f.get("assessment","触发既定库存规则"))}。',
                   '  工具/来源/查询时刻：'+'；'.join(f'{safe(t)} / {safe(f["sources"][t])} / {safe(f["asOf"][t])}' for t in f['tools'])+'。']
+        if f.get('snapshotId'):lines.append('  原子读取范围：'+safe(f.get('snapshotScope'))+'；快照：'+safe(f['snapshotId'])+'；日期口径：'+safe(f.get('dateBasis'))+'。')
     if not dossier['facts']:lines+=['- 本次没有新增的异常结论；已校验的原始查询数值或无匹配结果见上表。']
     if len(dossier['facts'])>maximum:lines += [f'- 匹配{len(dossier["facts"])}条；仅展开前{maximum}条证据/建议，其余对象的已校验数值见上表，可按ID缩小范围继续。']
     lines+=['','### 仍需核实的可能解释']

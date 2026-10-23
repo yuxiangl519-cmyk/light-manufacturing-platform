@@ -24,6 +24,15 @@ MAX_MESSAGES_BYTES=48000
 MAX_ROUNDS=8
 CAPABILITY='支持只读销售总览、客户/商品销售分析、当前库存、低库存、已确认工单缺料与待入库查询。金额为含税已发货订单金额，不是收入或利润；不支持历史库存、预测或业务写操作。'
 
+
+def sales_basis(message, context):
+    """Only explicit user wording may change the persisted date definition."""
+    shipped = bool(re.search(r'按(?:实际)?发货(?:时间|日期|日)|实际发货|(?<!已)发货销售|发货金额|发货日期口径|shipped_at', message, re.I))
+    created = bool(re.search(r'按(?:订单)?创建(?:时间|日期|日)|创建日期口径|created_at', message, re.I))
+    if shipped and created:raise ValueError('Choose one sales date basis')
+    if re.search(r'按(?:确认|下单|成交|付款|收款|签收)(?:时间|日期)', message):raise ValueError('Unsupported or ambiguous date basis')
+    return 'shipped_at' if shipped else 'created_at' if created else context.get('dateBasis', 'created_at')
+
 def evidence_key(name,args):
     return (args.get('templateId') or name) if name=='execute_safe_query' else {'get_sales_summary':'sales_summary','get_sales_trend':'sales_trend'}.get(name,name)
 
@@ -35,7 +44,7 @@ def public_data(value):
     if isinstance(value,dict):return {k:('既有业务应用服务受控查询' if k=='source' else public_data(v)) for k,v in value.items() if k not in ('gatewayToken','authorization','password','phone','email','contact','sql')}
     if isinstance(value,list):return [public_data(x) for x in value]
     if isinstance(value,str):
-        value=re.sub(r'sales_order\.status=SHIPPED;created_at;deleted_at IS NULL(?:;sales_order_item\.line_amount;material_id;unit)?','已发货销售订单受控统计',value)
+        value=re.sub(r'sales_order\.status=SHIPPED;(?:created_at|shipped_at);deleted_at IS NULL(?:;sales_order_item\.line_amount;material_id;unit)?','已发货销售订单受控统计',value)
         value=re.sub(r'\b(?:stock_balance|production_material_snapshot|stock_document_item|stock_document)\b','业务查询',value)
         return redact_question(re.sub(r'<think>.*?</think>','',value,flags=re.S))
     return value
@@ -80,6 +89,8 @@ class ModelDrivenAgent:
     @staticmethod
     def stage(node,message):get_stream_writer()(('stage',{'node':node,'message':message}))
     def save(self,r,update,completed=False):
+        if update.get('domain')=='sales' or update.get('metric')=='sales' or update.get('dimension') in ('customer','product'):
+            update={'dateBasis':r.context.get('dateBasis','created_at'),**update}
         before=r.context;r.context=merge_context(before,update,completed=completed,today=r.today)
         get_stream_writer()(('stage',{'node':'Context','message':describe_change(before,r.context),'context':r.context}))
 
@@ -133,7 +144,7 @@ class ModelDrivenAgent:
                     needed=next(t['function']['parameters']['required'] for t in decision_schemas() if t['function']['name']==name)
                     kinds={'warehouseId':'warehouse','materialId':'material','productionOrderId':'production'}
                     if all(r.ids.get(kinds[k]) for k in needed):raise ValueError()
-                if conditions.get('metric')=='sales' and r.context.get('metric')!='sales' and not any(w in r.message for w in ('销售','订单','卖','采购')):raise ValueError()
+                if conditions.get('metric')=='sales' and r.context.get('metric')!='sales' and not any(w in r.message for w in ('销售','订单','卖','采购','发货金额')):raise ValueError()
                 for kind,ids in object_scope('',{**conditions,**(conditions.get('operationsArgs') or {})}).items():
                     if not ids<=r.ids.get(kind,set()):raise ValueError()
                 self.save(r,{**r.period,**conditions,'question':question})
@@ -172,9 +183,11 @@ class ModelDrivenAgent:
         # Execution policy, not intent routing: unsupported financial definitions cannot be silently changed.
         if name not in OPERATION_TOOLS:
             if not r.period:raise ValueError('Sales period is missing/invalid')
+            basis=sales_basis(r.message,r.context)
+            r.context['dateBasis']=basis
             if any(w in r.message for w in ('利润','毛利','收入','营收')):raise ValueError('Unsupported metric must be clarified')
             accepted=r.initial.get('question') in ('metric','revenue','profit') and bool(re.match(r'^(?:可以|同意|是的|好的|好[，。])',r.message))
-            if r.context.get('metric')!='sales' and not accepted and not any(w in r.message for w in ('销售','订单','卖','采购')):raise ValueError('Metric requires explicit confirmation')
+            if r.context.get('metric')!='sales' and not accepted and not any(w in r.message for w in ('销售','订单','卖','采购','发货金额')):raise ValueError('Metric requires explicit confirmation')
             if r.context.get('entityId') and name in ('get_sales_summary','get_sales_trend','execute_safe_query') and not any(w in r.message for w in ('全厂','总体','全部')):raise ValueError('Cannot widen entity scope')
         else:
             if name!='resolve_operations_entity' and re.search(r'昨天|历史|上个?月|上周|截至|\d{4}[-年]',r.message):raise ValueError('Historical stock unsupported')
@@ -185,6 +198,7 @@ class ModelDrivenAgent:
         if 'limit' in args and (type(args['limit'])!=int or not 1<=args['limit']<=20):raise ValueError('Invalid limit')
         if 'query' in args and not query_text(args['query']):raise ValueError('Invalid lookup query')
         arguments={**(r.period if name not in OPERATION_TOOLS else {}),**{k:v for k,v in args.items() if k!='operation'}}
+        if name not in OPERATION_TOOLS:arguments['dateBasis']=basis
         if name=='resolve_operations_entity' and args.get('operation') not in OPERATION_TOOLS-{'resolve_operations_entity'}:raise ValueError('Invalid requested operation')
         scope=({'operation':name,'arguments':arguments} if name in OPERATION_TOOLS else {'dimension':args.get('dimension'),'entityId':args.get('entityId'),'query':args.get('query')} if name in ('resolve_sales_entity','get_entity_sales') else {'dimension':'customer' if name=='get_customer_sales_ranking' else 'product'} if name.endswith('_ranking') else None)
         return arguments,scope
@@ -286,6 +300,8 @@ class ModelDrivenAgent:
             if retry and original and not r.period:
                 try:r.period=resolve_period(original,{},today=today) or {}
                 except ValueError:pass
+            try:r.context['dateBasis']=sales_basis(r.message,r.context)
+            except ValueError:period_error='日期口径含混或不支持；请澄清按创建时间还是实际发货时间。'
             if r.period:r.context.update(r.period)
             else:
                 for k in ('startDate','endDate'):r.context.pop(k,None)

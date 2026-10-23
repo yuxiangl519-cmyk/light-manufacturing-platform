@@ -110,7 +110,7 @@ class DimensionAnalysis:
                 try:dossier=EvidenceEngine().concentration(summary,ranking,period)
                 except MissingEvidence:return clarify('客户集中度缺少完整排名、来源或查询时刻；尚未回答占比判断，请缩小范围或重试同期间查询。')
                 content=(f'客户集中度：{period["startDate"]} 至 {period["endDate"]}（结束日期不含当天，Asia/Shanghai）\n\n'
-                         '口径：按销售单创建时间筛选当前已发货、未删除订单，人民币含税单头金额，不是收入或利润。\n\n'+render_evidence(dossier))
+                         f'口径：{summary["definition"]}。\n\n'+render_evidence(dossier))
                 return {'content':content,'context':{**period,'metric':'sales'},'route':'completed'}
             if selected['operation']=='ranking':
                 limit=selected['limit']
@@ -137,7 +137,7 @@ class DimensionAnalysis:
                     content+=f'| {row["id"]} | {safe(row["name"])} | {amount:.2f} | {count} | {quantity} |\n'
                 if not rows:content+='\n本期无已发货销售数据。\n'
                 definition='销售单头total_amount' if dimension=='customer' else '销售明细line_amount（明细金额）'
-                content+=(f'\n口径：按销售单创建时间筛选当前SHIPPED且未软删除记录；人民币含税{definition}，不是收入或利润。'
+                content+=(f'\n口径：{safe(value["definition"])}。金额定义：人民币含税{definition}；不是收入或利润。'
                           f'\n数据来源：{safe(value["source"])}；币种：CNY。'
                           '\n最多显示指定前N名，不将排行当成全厂总额。商品订单数跨商品不可相加；不同单位数量分别列示。'
                           '\n名称取区间内最近销售快照，身份按后端ID区分；停用资料可查历史。')

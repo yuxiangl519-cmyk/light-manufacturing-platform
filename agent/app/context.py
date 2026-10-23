@@ -31,7 +31,7 @@ def clean_context(raw,today=None):
     for key in ID_KEYS:
         if valid_id(raw.get(key)):c[key]=raw[key]
     for key,values in {'domain':('sales','operations'),'metric':('sales',),'dimension':('customer','product'),
-                       'question':QUESTIONS,'analysisOperation':('total','entity','ranking','concentration')}.items():
+                       'dateBasis':('created_at','shipped_at'),'question':QUESTIONS,'analysisOperation':('total','entity','ranking','concentration')}.items():
         if raw.get(key) in values:c[key]=raw[key]
     if type(raw.get('rankingLimit'))==int and 1<=raw['rankingLimit']<=20:c['rankingLimit']=raw['rankingLimit']
     if query_text(raw.get('entityQuery')):c['entityQuery']=raw['entityQuery']

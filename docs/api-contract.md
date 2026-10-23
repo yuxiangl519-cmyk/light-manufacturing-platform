@@ -264,3 +264,7 @@ HTTP路径、DTO、SSE事件和身份校验不变。日期与指标均由Agent�
 ## 2026-10-21 第二轮简约界面
 
 第二轮仅调整展示模板/CSS；删除常驻字数显示但保留4000字限制，原接口、SSE与权限契约未变。详见 [第二轮报告](minimal-ui-chat-report.md)。
+
+## 2026-10-23 安全与分析一致性补齐
+
+新增当前用户GET /api/v1/ai/conversations/quota与/calls（沿用AI业务读权限，不接受任意用户或工厂ID）。返回字段见ai-quota.md；429使用AI_RATE_LIMIT / AI_DAILY_LIMIT / AI_CAPACITY。内部销售工具Query新增可选dateBasis=created_at/shipped_at，缺省保持原创建时间口径；库存工具不接受此字段。销售数值响应增加dateBasis、snapshotId、snapshotScope，保留原字段。事件execution实际返回时持久化，不要求done重复。详见 [交付与验证](hardening-report.md)、[额度](ai-quota.md)、[销售口径与快照](sales-basis-snapshot.md)。

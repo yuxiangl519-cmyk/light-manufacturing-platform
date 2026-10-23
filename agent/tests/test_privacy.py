@@ -1,7 +1,7 @@
 from app.privacy import redact_question
 
 def test_obvious_sensitive_question_fields_are_masked():
-    text='最近30天 13800138000 demo@example.org sk-THIS_IS_ONLY_A_FAKE_TEST_KEY'
+    text='最近30天 13800138000 demo@example.org ' + ('sk-' + 'a' * 32) + ''
     result=redact_question(text)
     assert result=='最近30天 [REDACTED_PHONE] [REDACTED_EMAIL] [REDACTED_KEY]'
 

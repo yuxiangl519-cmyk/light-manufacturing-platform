@@ -59,6 +59,9 @@ mfg:
     service-token: ${MFG_AI_SERVICE_TOKEN:}
     agent-url: ${MFG_AI_AGENT_URL:http://127.0.0.1:8091}
     tenant: ${MFG_AI_TENANT:local-factory}
+    quota:
+      per-minute: ${MFG_AI_QUOTA_PER_MINUTE:5}
+      per-day: ${MFG_AI_QUOTA_PER_DAY:50}
 logging:
   level:
     org.hibernate.SQL: OFF

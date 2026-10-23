@@ -27,7 +27,7 @@ public final class AiContext {
     ObjectNode result=JsonNodeFactory.instance.objectNode().put("version",1);
     if(raw==null||!raw.isObject()||raw.has("version")&&(!raw.path("version").isInt()||raw.path("version").intValue()!=1))return result;
     for(String key:List.of("entityId","lastCustomerId","lastProductId","warehouseId","materialId","productionOrderId"))if(id(raw.get(key)))result.put(key,raw.get(key).asText());
-    choice(result,raw,"domain","sales","operations");choice(result,raw,"metric","sales");choice(result,raw,"dimension","customer","product");
+    choice(result,raw,"domain","sales","operations");choice(result,raw,"metric","sales");choice(result,raw,"dateBasis","created_at","shipped_at");choice(result,raw,"dimension","customer","product");
     var retry=raw.get("retryRequest");if(retry!=null&&retry.isTextual()&&!retry.asText().isBlank()&&retry.asText().length()<=400&&!SENSITIVE.matcher(retry.asText()).find())result.put("retryRequest",retry.asText());
     choice(result,raw,"question","dates","metric","profit","revenue","dimensions","entity","operation","evidence","retry");choice(result,raw,"analysisOperation","total","entity","ranking","concentration");
     if(raw.path("rankingLimit").isInt()&&raw.path("rankingLimit").intValue()>=1&&raw.path("rankingLimit").intValue()<=20)result.put("rankingLimit",raw.path("rankingLimit").intValue());

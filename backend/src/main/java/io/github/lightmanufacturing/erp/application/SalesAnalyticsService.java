@@ -34,18 +34,26 @@ public class SalesAnalyticsService {
   public SalesAnalyticsService(JdbcTemplate jdbc) { this.jdbc = jdbc; }
 
   public Map<String, Object> summary(LocalDate startDate, LocalDate endDate) {
+    return summary(startDate, endDate, "created_at");
+  }
+  public Map<String,Object> summary(LocalDate startDate, LocalDate endDate, String basis) {
+    basis = basis(basis);
     long days = validate(startDate, endDate);
     LocalDate previousStart;
     try { previousStart = startDate.minusDays(days); }
     catch (DateTimeException ex) { throw ApiException.invalid("日期区间超出支持范围"); }
-    var result = metadata(startDate, endDate);
+    var result = metadata(startDate, endDate, basis);
     result.put("previousPeriod", period(previousStart, startDate));
-    result.put("current", aggregate(startDate, endDate));
-    result.put("previous", aggregate(previousStart, startDate));
+    result.put("current", aggregate(startDate, endDate, basis));
+    result.put("previous", aggregate(previousStart, startDate, basis));
     return result;
   }
 
   public Map<String, Object> trend(LocalDate startDate, LocalDate endDate) {
+    return trend(startDate, endDate, "created_at");
+  }
+  public Map<String,Object> trend(LocalDate startDate, LocalDate endDate, String basis) {
+    final String column = basis(basis);
     validate(startDate, endDate);
     // Each boundary is calculated in Java: no server/session timezone or MySQL timezone tables.
     var calendar = new StringJoiner(",", "[", "]");
@@ -54,7 +62,7 @@ public class SalesAnalyticsService {
           + "\",\"end\":\"" + utc(day.plusDays(1)) + "\"}");
     }
     var points = jdbc.query(connection -> {
-      PreparedStatement statement = connection.prepareStatement(TREND_SQL);
+      PreparedStatement statement = connection.prepareStatement(TREND_SQL.replace("orders.created_at", "orders." + column));
       statement.setQueryTimeout(5);
       statement.setMaxRows(366);
       statement.setString(1, calendar.toString());
@@ -62,14 +70,14 @@ public class SalesAnalyticsService {
     }, (row, index) -> Map.of("date", row.getDate("day").toLocalDate().toString(),
         "salesAmount", row.getBigDecimal("sales_amount").setScale(2).toPlainString(),
         "orderCount", row.getString("order_count")));
-    var result = metadata(startDate, endDate);
+    var result = metadata(startDate, endDate, basis);
     result.put("points", points);
     return result;
   }
 
-  private Map<String, String> aggregate(LocalDate startDate, LocalDate endDate) {
+  private Map<String, String> aggregate(LocalDate startDate, LocalDate endDate, String basis) {
     return jdbc.query(connection -> {
-      PreparedStatement statement = connection.prepareStatement(SUMMARY_SQL);
+      PreparedStatement statement = connection.prepareStatement(SUMMARY_SQL.replace("created_at", basis(basis)));
       statement.setQueryTimeout(5);
       statement.setMaxRows(1);
       statement.setTimestamp(1, Timestamp.from(startDate.atStartOfDay(SHANGHAI).toInstant()));
@@ -82,7 +90,7 @@ public class SalesAnalyticsService {
     });
   }
 
-  static long validate(LocalDate start, LocalDate end) {
+  public static long validate(LocalDate start, LocalDate end) {
     if (start == null || end == null || !start.isBefore(end))
       throw ApiException.invalid("开始日期须早于结束日期，结束日期不包含在区间内");
     long days = ChronoUnit.DAYS.between(start, end);
@@ -102,11 +110,21 @@ public class SalesAnalyticsService {
   }
 
   static Map<String, Object> metadata(LocalDate start, LocalDate end) {
+    return metadata(start, end, "created_at");
+  }
+  public static String basis(String basis) {
+    if (basis == null) return "created_at";
+    if (!Set.of("created_at", "shipped_at").contains(basis)) throw ApiException.invalid("日期口径仅支持created_at或shipped_at");
+    return basis;
+  }
+  static Map<String,Object> metadata(LocalDate start, LocalDate end, String basis) {
+    basis = basis(basis);
     var result = new LinkedHashMap<String, Object>();
+    result.put("dateBasis", basis);
     result.put("period", period(start, end));
     result.put("currency", "CNY");
-    result.put("definition", DEFINITION);
-    result.put("source", SOURCE);
+    result.put("definition", "shipped_at".equals(basis) ? "按实际发货时间筛选当前已发货销售单的人民币含税发货金额，不是收入或利润" : DEFINITION);
+    result.put("source", SOURCE.replace("created_at", basis));
     result.put("asOf", Instant.now().toString());
     return result;
   }

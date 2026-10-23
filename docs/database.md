@@ -181,3 +181,7 @@ AI批量回归修复未改表结构、索引或迁移。上下文沿用ai_conver
 ## 2026-10-21 第二轮简约界面
 
 第二轮简化页面，无结构或持久化变更、无迁移及业务数据写入。详见 [第二轮报告](minimal-ui-chat-report.md)。
+
+## 2026-10-23 安全与分析一致性补齐
+
+Flyway V9新增ai_quota_owner与ai_call，按工厂/用户串行接纳，索引支持每日与滚动60秒计数；持久运行状态/耗时/Java派发尝试/实际返回的模型次数和token。缺失用量为NULL，不保存认证票据或模型原始响应。销售复用既有shipped_at，无财务字段；只在mini_mfg_test验证迁移，开发库随下次正常后端启动执行Flyway。详见 [交付与验证](hardening-report.md)、[额度](ai-quota.md)、[销售口径与快照](sales-basis-snapshot.md)。

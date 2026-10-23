@@ -40,7 +40,7 @@ AI当前采用[模型决策→工具执行→结果回模型](docs/ai-model-loop
 
 另开终端：先cd frontend并执行npm ci，再回根目录执行scripts/Start-Frontend.ps1，访问 http://localhost:5173 。账号admin/operator/viewer，密码使用本项目本地环境变量，仓库没有默认密码。开发库不自动灌交易。
 
-[高保真设计参考](docs/design/saas-home-reference.png) · [真实1440页面截图](docs/design/stage5-home-1440.png) · [完整验证记录与限制](docs/stage5-verification.md)。当前锁定依赖npm audit报告8项漏洞，尚未进行安全升级及生产部署。
+[高保真设计参考](docs/design/saas-home-reference.png) · [真实1440页面截图](docs/design/stage5-home-1440.png) · [完整验证记录与限制](docs/stage5-verification.md)。2026-10-23已完成授权安全修复，npm audit为0项；尚未进行生产部署。
 ## 新增：智能经营分析Agent
 
 Java+FastAPI+LangGraph+Vue真实销售分析已接通DeepSeek；支持经营指标、等长上期比较、规则异常、利润/日期澄清、历史和实时SSE。原Java/Vue之外运行./scripts/Start-Agent.ps1，访问http://localhost:5173/ai-analysis。详情见[启动与能力边界](docs/ai-agent-mvp.md)及[真实验证记录](docs/ai-agent-verification.md)。当前单工厂部署，不宣称自由SQL或完整长期记忆；未自动灌入开发交易。
@@ -48,3 +48,7 @@ Java+FastAPI+LangGraph+Vue真实销售分析已接通DeepSeek；支持经营指�
 ## 历史演示数据
 
 开发库已追加电脑组装模拟经营数据（2026-08-22～10-20），真实型号与公开报价有来源，交易均标明模拟，已有数据保留。页面搜索DM261020或选择演示仓库。详见[演示数据说明](docs/demo-data/README.md)、[资料来源](docs/demo-data/sources.md)与[验收记录](docs/demo-data/verification.md)。
+
+## 安全与分析质量补齐（2026-10-23）
+
+已增加按用户限频/日额度与持久调用记录、按实际发货日期统计、同一销售分析快照及CI。实际结果与单实例限制见 [交付报告](docs/hardening-report.md)。

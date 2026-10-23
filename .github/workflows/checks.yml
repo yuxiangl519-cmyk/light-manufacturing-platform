@@ -1,0 +1,82 @@
+name: Project checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  frontend:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm audit --audit-level=moderate
+      - run: npm run typecheck
+      - run: npm run test:unit -- --run
+      - run: npm run build
+  backend:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      mysql:
+        image: mysql:8.4.7
+        env:
+          MYSQL_ROOT_PASSWORD: ci-root-ephemeral-only
+          MYSQL_DATABASE: mini_mfg_test
+          MYSQL_USER: mini_mfg_test
+          MYSQL_PASSWORD: ci-test-ephemeral-only
+        ports: ['13306:3306']
+        options: --health-cmd="mysqladmin ping -h localhost" --health-interval=5s --health-timeout=5s --health-retries=30
+      redis:
+        image: redis:7.4.2
+        ports: ['16380:6379']
+        options: --health-cmd="redis-cli ping" --health-interval=5s --health-timeout=5s --health-retries=15
+    env:
+      MFG_TEST_DB_URL: jdbc:mysql://127.0.0.1:13306/mini_mfg_test?connectionTimeZone=UTC
+      MFG_TEST_DB_USERNAME: mini_mfg_test
+      MFG_TEST_DB_PASSWORD: ci-test-ephemeral-only
+      MFG_TEST_REDIS_HOST: 127.0.0.1
+      MFG_TEST_REDIS_PORT: '16380'
+      MFG_BOOTSTRAP_ENABLED: 'true'
+      MFG_ADMIN_PASSWORD: CI-admin-ephemeral-123!
+      MFG_OPERATOR_PASSWORD: CI-operator-ephemeral-123!
+      MFG_VIEWER_PASSWORD: CI-viewer-ephemeral-123!
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - run: cd backend && sh mvnw -B -P integration verify
+  agent-and-repository:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13.5'
+      - run: python3 -m venv .ci-venv
+      - run: .ci-venv/bin/python -m pip install -r agent/requirements.lock.txt
+      - run: .ci-venv/bin/python scripts/check_repository_safety.py
+      - run: .ci-venv/bin/python -m pytest agent/tests -q

@@ -16,8 +16,10 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 @RequestMapping("/api/v1/ai/conversations")
 @PreAuthorize("hasAnyAuthority('erp:sales:read','wms:stock:read','mes:production:read','wms:document:read')")
 public class AiController {
-  private final AiConversationService service;private final AiStreamService streams;
-  public AiController(AiConversationService service,AiStreamService streams){this.service=service;this.streams=streams;}
+  private final AiQuotaService quota;private final AiConversationService service;private final AiStreamService streams;
+  public AiController(AiConversationService service,AiStreamService streams,AiQuotaService quota){this.quota=quota;this.service=service;this.streams=streams;}
+  @GetMapping("/quota") public AiQuotaService.Quota quota(@AuthenticationPrincipal SessionPrincipal p){return quota.quota(p.id());}
+  @GetMapping("/calls") public List<AiQuotaService.Call> calls(@AuthenticationPrincipal SessionPrincipal p){return quota.calls(p.id());}
   @GetMapping public List<Conversation> list(@AuthenticationPrincipal SessionPrincipal p){return service.list(p.id());}
   @PostMapping @ResponseStatus(HttpStatus.CREATED) public Conversation create(@AuthenticationPrincipal SessionPrincipal p,@Valid @RequestBody Create body){return service.create(p.id(),body.title());}
   @GetMapping("/{id}") public Detail detail(@AuthenticationPrincipal SessionPrincipal p,@PathVariable String id){return service.detail(Policy.id(id),p.id());}

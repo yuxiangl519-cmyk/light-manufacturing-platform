@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite --host localhost",
     "typecheck": "vue-tsc --noEmit",
@@ -13,20 +15,20 @@
     "test:e2e": "node scripts/e2e.mjs"
   },
   "dependencies": {
-    "vue": "3.5.22",
-    "vue-router": "4.5.1",
-    "pinia": "3.0.3",
-    "axios": "1.12.2",
+    "axios": "1.20.0",
+    "echarts": "6.1.0",
     "element-plus": "2.11.5",
-    "echarts": "6.0.0"
+    "pinia": "3.0.3",
+    "vue": "3.5.42",
+    "vue-router": "4.5.1"
   },
   "devDependencies": {
-    "typescript": "5.9.3",
-    "vite": "7.1.12",
-    "@vitejs/plugin-vue": "6.0.1",
-    "vue-tsc": "3.1.1",
+    "@playwright/test": "1.56.1",
     "@types/node": "24.10.0",
-    "vitest": "3.2.4",
-    "@playwright/test": "1.56.1"
+    "@vitejs/plugin-vue": "6.0.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "4.1.12",
+    "vue-tsc": "3.1.1"
   }
 }

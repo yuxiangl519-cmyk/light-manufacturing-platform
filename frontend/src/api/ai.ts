@@ -52,7 +52,18 @@ async function readMessage(id: string, message: string, signal: AbortSignal, rec
     body: JSON.stringify({ message }),
   })
   if (response.status === 401) { clearCsrf(); window.dispatchEvent(new CustomEvent('session-expired')) }
-  if (!response.ok) throw new Error(response.status === 403 ? '没有分析权限或会话校验失效，请刷新页面后重试' : `分析请求失败（${response.status}），请检查服务后重试`)
+  if (!response.ok) {
+    if (response.status === 429) {
+      const body = await response.json().catch(() => ({}))
+      const messages: Record<string,string> = {
+        AI_DAILY_LIMIT: '今日 AI 分析额度已用完，请在上海时间明日零点后重试。',
+        AI_RATE_LIMIT: '分析请求过于频繁，请稍后再试。',
+        AI_CAPACITY: '当前分析任务较多，请稍后再试。',
+      }
+      throw new Error(messages[body.code] || '分析请求受到限流，请稍后再试。')
+    }
+    throw new Error(response.status === 403 ? '没有分析权限或会话校验失效，请刷新页面后重试' : `分析请求失败（${response.status}），请检查服务后重试`)
+  }
   if (!response.headers.get('content-type')?.includes('text/event-stream') || !response.body) throw new Error('分析服务返回了无效的数据流')
   const reader = response.body.getReader(), parse = createSseParser(receive)
   try {

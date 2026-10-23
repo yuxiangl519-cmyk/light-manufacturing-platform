@@ -130,3 +130,7 @@ AI第3阶段工具评测：`Test-AiEvaluation.ps1 -Live -Calendar -Dimensions`�
 ## 2026-10-21 第二轮简约界面
 
 第二轮通过19项单测及11组隔离浏览器界面回归，覆盖新增笔记本/手机空态检查；typecheck及build通过。详见 [第二轮报告](minimal-ui-chat-report.md)。
+
+## 2026-10-23 安全与分析一致性补齐
+
+实际完成npm审计0告警、前端类型/20单测/构建、11组隔离浏览器检查、后端36单元+76真实MySQL/HTTP/Redis集成、Python258确定性测试。Test-AiEvaluation.ps1纳入额度与原子快照专项；真实模型默认仍关闭，不把测试替身称真实验证。CI使用独立MySQL8.4.7/Redis7.4.2，不读取本机私密配置。详见 [交付与验证](hardening-report.md)、[额度](ai-quota.md)、[销售口径与快照](sales-basis-snapshot.md)。

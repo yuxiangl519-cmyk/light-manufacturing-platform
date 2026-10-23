@@ -3,6 +3,17 @@ import { createSseParser, markdownBlocks, streamMessage, type AiEvent } from './
 import {api} from './http'
 
 describe('AI event stream', () => {
+  it('explains daily quota and rate limits without exposing raw server errors or retrying',async()=>{
+    vi.spyOn(api,'get').mockResolvedValue({data:{token:'test-csrf'}})
+    try {
+      for(const [code,text] of [['AI_DAILY_LIMIT','明日零点'],['AI_RATE_LIMIT','过于频繁'],['AI_CAPACITY','任务较多'],['UNKNOWN','限流']]) {
+        const fetcher=vi.fn().mockResolvedValue(new Response(JSON.stringify({code,message:'private backend detail'}),{status:429}))
+        vi.stubGlobal('fetch',fetcher)
+        await expect(streamMessage('1','测试',new AbortController().signal,()=>{})).rejects.toThrow(text)
+        expect(fetcher).toHaveBeenCalledTimes(1)
+      }
+    } finally {vi.restoreAllMocks();vi.unstubAllGlobals()}
+  })
   it('bounds a stalled stream without automatically resending the question',async()=>{
     vi.spyOn(api,'get').mockResolvedValue({data:{token:'test-csrf'}})
     const fetcher=vi.fn((_url,options)=>new Promise((_resolve,reject)=>options.signal.addEventListener('abort',()=>reject(new DOMException('abort','AbortError')))))

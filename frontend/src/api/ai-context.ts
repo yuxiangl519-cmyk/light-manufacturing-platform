@@ -6,7 +6,7 @@ export function scopeText(context: Record<string,unknown> | undefined): string {
   if(!context) return ''
   const fields: string[]=[]
   if(typeof context.startDate==='string' && typeof context.endDate==='string') fields.push(`日期 ${context.startDate} 至 ${context.endDate}（结束日排除，Asia/Shanghai）`)
-  if(context.metric==='sales') fields.push('指标：含税已发货销售额、订单数')
+  if(context.metric==='sales') fields.push(`指标：含税已发货销售额、订单数；${context.dateBasis==='shipped_at'?'按实际发货时间':'按订单创建时间'}`)
   if(context.dimension==='customer' || context.dimension==='product') {
     const id=conversationId(context.entityId)
     if(id) fields.push(`${context.dimension==='customer'?'客户':'商品'}ID ${id}`)

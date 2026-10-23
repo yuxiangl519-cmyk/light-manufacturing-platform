@@ -230,7 +230,7 @@ class RuleWorkflow:
                    f'| 已发货订单数 | {m["orderCount"]} | {m["previousOrderCount"]} | {m["orderGrowth"]} |\n\n'
                    f'日均销售额：{m["dailyMean"]} 元；首末日销售额比较：{m["trendDirection"]}。\n\n'
                    '异常提示：' + ('；'.join(m['anomalies']) if m['anomalies'] else '未触发日销售额超过均值两倍或零销售日规则。') +
-                   '\n\n口径：按创建时间筛选当前已发货销售单，人民币含税订单金额；不是收入或利润。'
+                   '\n\n口径：' + ('按实际发货时间筛选当前已发货销售单，人民币含税订单金额；不是收入或利润。' if summary.get('dateBasis')=='shipped_at' else '按创建时间筛选当前已发货销售单，人民币含税订单金额；不是收入或利润。') +
                    '\n异常为规则提示，不能推断业务原因。金额与增长率由确定性Decimal计算。')
         content += ('\n时区：Asia/Shanghai。自然周为周一至周日；最近N天包含今天。'
                     '\n本周、本月及指定的当前月份只统计到今天（含），今日数据截至读取时刻，尚未结束。'
